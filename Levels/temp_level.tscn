@@ -1,8 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwh612pdj51oo"]
+[gd_scene load_steps=6 format=3 uid="uid://dwh612pdj51oo"]
 
 [ext_resource type="PackedScene" uid="uid://d2y3tr3j5exhm" path="res://Player/temp_player.tscn" id="1_hq4be"]
+[ext_resource type="PackedScene" uid="uid://1q40oymcgcqt" path="res://Enemy/alien.tscn" id="2_6bin5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arefr"]
+size = Vector2(64, 64)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ghn1h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nlmp"]
+size = Vector2(20, 667)
 
 [node name="temp_level" type="Node2D"]
 
 [node name="temp_player" parent="." instance=ExtResource("1_hq4be")]
 position = Vector2(537, 337)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="temp_player"]
+shape = SubResource("RectangleShape2D_arefr")
+
+[node name="wall" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_ghn1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+position = Vector2(-11, 326)
+shape = SubResource("RectangleShape2D_8nlmp")
+
+[node name="wall2" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_ghn1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall2"]
+position = Vector2(1163, 322)
+shape = SubResource("RectangleShape2D_8nlmp")
+
+[node name="Node2D" parent="." instance=ExtResource("2_6bin5")]
+position = Vector2(540, 37)
