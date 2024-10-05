@@ -1,21 +1,94 @@
-[gd_scene load_steps=4 format=3 uid="uid://1q40oymcgcqt"]
+[gd_scene load_steps=14 format=3 uid="uid://1q40oymcgcqt"]
 
 [ext_resource type="Script" path="res://Enemy/alien.gd" id="1_mms7r"]
+[ext_resource type="Texture2D" uid="uid://cy4gt6p4hp2je" path="res://Assets/enemy-idle.png" id="2_s8c28"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjtea"]
+atlas = ExtResource("2_s8c28")
+region = Rect2(0, 0, 27, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qy8e"]
+atlas = ExtResource("2_s8c28")
+region = Rect2(27, 0, 27, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy3e3"]
+atlas = ExtResource("2_s8c28")
+region = Rect2(54, 0, 27, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx2it"]
+atlas = ExtResource("2_s8c28")
+region = Rect2(81, 0, 27, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve71a"]
+atlas = ExtResource("2_s8c28")
+region = Rect2(81, 0, 27, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4soa"]
+atlas = ExtResource("2_s8c28")
+region = Rect2(54, 0, 27, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkba4"]
+atlas = ExtResource("2_s8c28")
+region = Rect2(27, 0, 27, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b56o4"]
+atlas = ExtResource("2_s8c28")
+region = Rect2(0, 0, 27, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5d1hr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjtea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qy8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy3e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx2it")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve71a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4soa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkba4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b56o4")
+}],
+"loop": true,
+"name": &"Orange",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4dq2m"]
-size = Vector2(30, 30)
+size = Vector2(123, 49)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_myn7n"]
 size = Vector2(30, 30)
 
-[node name="Node2D" type="CharacterBody2D"]
+[node name="Orange Alien" type="CharacterBody2D"]
 script = ExtResource("1_mms7r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
+position = Vector2(2.5, -5.5)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_5d1hr")
+animation = &"Orange"
+autoplay = "Orange"
+frame_progress = 0.305893
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(4.5, -11.5)
 shape = SubResource("RectangleShape2D_4dq2m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("PlaceholderTexture2D_myn7n")
