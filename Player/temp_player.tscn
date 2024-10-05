@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2y3tr3j5exhm"]
+
+[ext_resource type="Script" path="res://Player/temp_player.gd" id="1_rdv07"]
+
+[sub_resource type="Gradient" id="Gradient_p7mo1"]
+offsets = PackedFloat32Array(0, 0.991071)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k78ve"]
+gradient = SubResource("Gradient_p7mo1")
+
+[node name="temp_player" type="CharacterBody2D"]
+script = ExtResource("1_rdv07")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_k78ve")
+
+[node name="ProjectlesParent" type="Node2D" parent="."]
+top_level = true
