@@ -17,6 +17,7 @@ size = Vector2(20, 667)
 position = Vector2(537, 337)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="temp_player"]
+visible = false
 shape = SubResource("RectangleShape2D_arefr")
 
 [node name="wall" type="StaticBody2D" parent="."]
