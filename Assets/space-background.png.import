@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdcdmre38ik5a"
-path="res://.godot/imported/cannon.png-9d2b3e012890521845b77f0f6cf9b14e.ctex"
+uid="uid://dirhmku001wcg"
+path="res://.godot/imported/space-background.png-3d8b35289c8029234c749d01e289cdc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/hackzplayer.png"
-dest_files=["res://.godot/imported/hackzplayer.png-02a12f45cee6a3cda4dee7dbd6c63957.ctex"]
+source_file="res://Assets/space-background.png"
+dest_files=["res://.godot/imported/space-background.png-3d8b35289c8029234c749d01e289cdc0.ctex"]
 
 [params]
 

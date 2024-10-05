@@ -9,7 +9,28 @@ size = Vector2(64, 64)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ghn1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nlmp"]
-size = Vector2(12, 1079.5)
+size = Vector2(20, 667)
+
+[sub_resource type="Resource" id="Resource_w5boh"]
+script = ExtResource("4_i4r5e")
+position = Vector2(100, 0)
+enemy_scene = ExtResource("2_6bin5")
+time_offset = 1.0
+state = -1
+
+[sub_resource type="Resource" id="Resource_5xway"]
+script = ExtResource("4_i4r5e")
+position = Vector2(300, 0)
+enemy_scene = ExtResource("2_6bin5")
+time_offset = 4.0
+state = -1
+
+[sub_resource type="Resource" id="Resource_t4g3m"]
+script = ExtResource("4_i4r5e")
+position = Vector2(500, 0)
+enemy_scene = ExtResource("2_6bin5")
+time_offset = 1.0
+state = -1
 
 [node name="temp_level" type="Node2D"]
 
