@@ -12,7 +12,7 @@ NOTE: Also if we change this, we have to change how apply/remove modifier works 
 
 
 @export var damage:int = 0
-@export var area_effect:int = 0
+@export var size:int = 0
 @export var speed:int = 0
 #@export var damage:int = 0
 #@export var damage:int = 0
@@ -29,6 +29,6 @@ func _init(params:Dictionary = {}):
 func reset():
 	#do this with the foor loop from init??
 	damage = 0
-	area_effect = 0
+	size = 0
 	speed = 0
 	pass

@@ -3,12 +3,22 @@ class_name PlayerAttack
 
 ##NOTE: Ensure to add all these properties to all of the function!!!!!
 @export var damage:int = 0
-@export var area_effect:int = 0: ## This is just radius:
+
+##NOTE: this being scale means that you have to set the texture to the proper size. This will be a bit tough, sry.
+	## Could change to an independent sprite_size and size
+@export var size:int = 1: ## This is just scale ### This is just radius:
 	set(val):
-		#TODO could also just change scale, depends on wether we want to increase the sprite size as well.
-		collision_shape_2d.radius = area_effect
+		#TODO could do radius instead to not mess with the pixel sizing, but eh. 
+		#That's also tough and would require having a ton of sprites.
+		#Prob not worth it
+			
+			
+		#this is dumb??
+		size = val
+		scale = Vector2(size,size)
+		#collision_shape_2d.radius = size
 		pass
-@export var speed:int = 100
+@export var speed:int = 400
 
 @onready var collision_shape_2d: CircleShape2D = $CollisionShape2D.shape
 
@@ -19,7 +29,7 @@ func _process(delta: float) -> void:
 	
 func _ready():
 	#runs setter.
-	area_effect = area_effect
+	size = size
 	
 
 
@@ -28,7 +38,7 @@ func _ready():
 ## Modifier stuff
 func apply_modifier(modifier:AttackModifier, mult:int = 1): #mult just for removing it.
 	damage += modifier.damage * mult
-	area_effect += modifier.area_effect * mult
+	size += modifier.size * mult
 	speed += modifier.speed * mult
 	pass
 
