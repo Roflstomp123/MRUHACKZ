@@ -14,10 +14,9 @@ size = Vector2(20, 667)
 [node name="temp_level" type="Node2D"]
 
 [node name="temp_player" parent="." instance=ExtResource("1_hq4be")]
-position = Vector2(546, 609)
+position = Vector2(537, 337)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="temp_player"]
-visible = false
 shape = SubResource("RectangleShape2D_arefr")
 
 [node name="wall" type="StaticBody2D" parent="."]
@@ -34,5 +33,5 @@ physics_material_override = SubResource("PhysicsMaterial_ghn1h")
 position = Vector2(1163, 322)
 shape = SubResource("RectangleShape2D_8nlmp")
 
-[node name="Orange Alien" parent="." instance=ExtResource("2_6bin5")]
-position = Vector2(523, 39)
+[node name="Node2D" parent="." instance=ExtResource("2_6bin5")]
+position = Vector2(540, 37)
