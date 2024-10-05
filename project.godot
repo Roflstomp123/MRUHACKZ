@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 EnemySingleton="*res://Other/EnemySingleton.gd"
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=512
 
 [input]
 
