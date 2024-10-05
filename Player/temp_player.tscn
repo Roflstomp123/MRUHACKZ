@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://d2y3tr3j5exhm"]
 
 [ext_resource type="Script" path="res://Player/temp_player.gd" id="1_rdv07"]
-[ext_resource type="Texture2D" uid="uid://c53rpu4towxk2" path="res://hackzplayer.png" id="2_tsupp"]
+[ext_resource type="Texture2D" uid="uid://bf25d0tarhdgo" path="res://hackzplayer.png" id="2_tsupp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i1eyy"]
 atlas = ExtResource("2_tsupp")
@@ -167,3 +167,6 @@ frame_progress = 0.970304
 
 [node name="ProjectlesParent" type="Node2D" parent="."]
 top_level = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
