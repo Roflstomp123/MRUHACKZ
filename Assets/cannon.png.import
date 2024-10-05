@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6aqnsfr5t38j"
-path="res://.godot/imported/enemy-idle.png-ef986de21d9616e23064e0a9cdfcae8d.ctex"
+uid="uid://c4jg8ney727rg"
+path="res://.godot/imported/cannon.png-9d2b3e012890521845b77f0f6cf9b14e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/enemy-idle.png"
-dest_files=["res://.godot/imported/enemy-idle.png-ef986de21d9616e23064e0a9cdfcae8d.ctex"]
+source_file="res://Assets/cannon.png"
+dest_files=["res://.godot/imported/cannon.png-9d2b3e012890521845b77f0f6cf9b14e.ctex"]
 
 [params]
 
