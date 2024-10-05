@@ -16,9 +16,10 @@ class_name PlayerAttack
 		#this is dumb??
 		size = val
 		scale = Vector2(size,size)
-		#collision_shape_2d.radius = size
+		#collisdoion_shape_2d.radius = size
 		pass
 @export var speed:int = 400
+@export var cooldown:float = 0.2 #in seconds
 
 @onready var collision_shape_2d: CircleShape2D = $CollisionShape2D.shape
 
@@ -39,6 +40,7 @@ func apply_modifier(modifier:AttackModifier, mult:int = 1): #mult just for remov
 	damage += modifier.damage * mult
 	size += modifier.size * mult
 	speed += modifier.speed * mult
+	cooldown += modifier.cooldown
 	pass
 
 func remove_modifier(modifier:AttackModifier):

@@ -43,12 +43,15 @@ func _input(event: InputEvent) -> void:
 		current_modifier.reset()
 		
 		attack_cooldown = attack_cooldown_max
+		
+		
+		
 	## Handling modifiers 
 	# Make sure to only use values that are vars at the top so it's easier to iterate.
 	if event.is_action("Enlarge attack"):
 		current_modifier.size += size_increase_modifier
 		pass
-	
+	#if event.is_action("multi attack")
 		
 
 func _process(delta):
