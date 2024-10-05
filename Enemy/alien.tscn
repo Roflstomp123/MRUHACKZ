@@ -82,7 +82,7 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_5d1hr")
 animation = &"Orange"
 autoplay = "Orange"
-frame_progress = 0.305893
+frame_progress = 0.275975
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
