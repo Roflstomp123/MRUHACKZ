@@ -17,18 +17,23 @@ var player_attack:PackedScene = preload("res://Player/Attacks/PlayerAttack.tscn"
 var current_modifier:AttackModifier = AttackModifier.new()
 
 func _input(event: InputEvent) -> void:
-	#shoot basic attack
-	if event.is_action_pressed("ui_accept"):
-		
+	
+	## Committing to an attack
+	if event.is_action_pressed("ui_accept"):#event.is_action_pressed("Finish attack") or :
+		print("Aaaaaaa")
 		var new_projectile:PlayerAttack = player_attack.instantiate()
 		projectles_parent.add_child(new_projectile)
 		#Done since projectiles_parent is a canvas item.
 		new_projectile.position = position
 		
+		new_projectile.apply_modifier(current_modifier)
+		current_modifier.reset()
 		
-		
+	if event.is_action("Enlarge attack"):
+		current_modifier.size += 1 #keep in mind this is scale
 		pass
-	pass
+	
+		
 
 func _process(delta):
 	
