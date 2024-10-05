@@ -2,7 +2,7 @@ extends Node2D
 class_name PlayerAttack
 
 ##NOTE: Ensure to add all these properties to all of the function!!!!!
-@export var damage:int = 0
+@export var damage:int = 1
 
 ##NOTE: this being scale means that you have to set the texture to the proper size. This will be a bit tough, sry.
 	## Could change to an independent sprite_size and size
