@@ -1,0 +1,139 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhii2lrlym0ad"]
+
+[ext_resource type="Script" path="res://Menus/make_turret_menu.gd" id="1_n72h0"]
+[ext_resource type="PackedScene" uid="uid://dpocvxcwp4pss" path="res://Menus/shortcut_inventory_item.tscn" id="2_3vbxe"]
+[ext_resource type="PackedScene" uid="uid://c1q00h0a14dr6" path="res://Menus/turret_ordering_node.tscn" id="3_kk0ug"]
+
+[node name="MakeTurretMenu" type="MarginContainer"]
+layout_direction = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_n72h0")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="GridContainer2" type="GridContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainHolder" type="GridContainer" parent="Panel/GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/GridContainer2/MainHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Shortcuts" type="GridContainer" parent="Panel/GridContainer2/MainHolder/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="VSeparator" type="VSeparator" parent="Panel/GridContainer2/MainHolder"]
+layout_mode = 2
+
+[node name="GridContainer2" type="GridContainer" parent="Panel/GridContainer2/MainHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ShortcutInventoryItem" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+layout_mode = 2
+type = 1
+
+[node name="ShortcutInventoryItem2" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+layout_mode = 2
+type = 1
+
+[node name="ShortcutInventoryItem3" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+layout_mode = 2
+type = 1
+
+[node name="ShortcutInventoryItem4" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+layout_mode = 2
+type = 1
+
+[node name="ShortcutInventoryItem5" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+layout_mode = 2
+type = 1
+
+[node name="ShortcutInventoryItem6" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+layout_mode = 2
+type = 1
+
+[node name="ShortcutInventoryItem7" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+layout_mode = 2
+type = 1
+
+[node name="ShortcutInventoryItem8" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+layout_mode = 2
+type = 1
+
+[node name="ShortcutInventoryItem9" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+layout_mode = 2
+type = 1
+
+[node name="PlacingButtons" type="GridContainer" parent="Panel/GridContainer2"]
+layout_mode = 2
+columns = 9
+
+[node name="TurretOrderingNode" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TurretOrderingNode2" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TurretOrderingNode3" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TurretOrderingNode4" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TurretOrderingNode5" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TurretOrderingNode6" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TurretOrderingNode7" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TurretOrderingNode8" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TurretOrderingNode9" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

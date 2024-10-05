@@ -3,6 +3,7 @@ extends CharacterBody2D
 #could spawn it through new, but eh.
 var player_attack:PackedScene = preload("res://Player/Attacks/PlayerAttack.tscn")
 @onready var projectles_parent: Node2D = $ProjectlesParent
+@onready var make_turret_menu: MarginContainer = $CanvasLayer/MakeTurretMenu
 
 
 
@@ -52,6 +53,11 @@ func _input(event: InputEvent) -> void:
 		current_modifier.size += size_increase_modifier
 		pass
 	#if event.is_action("multi attack")
+	
+	if event.is_action_pressed("open_turret_menu"):
+		#TODO pausing?
+		#also this shouldn't be here, it should be done after missions.
+		make_turret_menu.visible = not make_turret_menu.visible
 		
 
 func _process(delta):

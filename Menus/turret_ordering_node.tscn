@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1q00h0a14dr6"]
+
+[ext_resource type="Script" path="res://Menus/turret_ordering_node.gd" id="1_wrwy7"]
+
+[node name="TurretOrderingNode" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_wrwy7")

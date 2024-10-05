@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://d2y3tr3j5exhm"]
+[gd_scene load_steps=25 format=3 uid="uid://d2y3tr3j5exhm"]
 
 [ext_resource type="Script" path="res://Player/temp_player.gd" id="1_rdv07"]
 [ext_resource type="Texture2D" uid="uid://vm71v14whfy6" path="res://Assets/hackzplayer.png" id="2_tsupp"]
+[ext_resource type="PackedScene" uid="uid://bhii2lrlym0ad" path="res://Menus/make_turret_menu.tscn" id="3_e0cnx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i1eyy"]
 atlas = ExtResource("2_tsupp")
@@ -170,3 +171,10 @@ top_level = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MakeTurretMenu" parent="CanvasLayer" instance=ExtResource("3_e0cnx")]
+visible = false
+size_flags_horizontal = 0
+size_flags_vertical = 0
