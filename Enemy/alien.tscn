@@ -16,7 +16,6 @@ collision_mask = 0
 script = ExtResource("1_mms7r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4dq2m")
@@ -34,6 +33,8 @@ collision_mask = 256
 
 [node name="HealthShape" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_238h0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="timeout" from="ChangeBehaviour" to="." method="_on_change_behaviour_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_health_area_area_entered"]

@@ -54,5 +54,5 @@ shape = SubResource("RectangleShape2D_8nlmp")
 position = Vector2(540, 37)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_5chmg")]
-enemy_spawner_instructions = Array[ExtResource("4_i4r5e")]([SubResource("Resource_w5boh"), SubResource("Resource_5xway"), SubResource("Resource_t4g3m")])
+enemy_spawner_instructions = [SubResource("Resource_w5boh"), SubResource("Resource_5xway"), SubResource("Resource_t4g3m")]
 metadata/_edit_lock_ = true

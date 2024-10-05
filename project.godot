@@ -23,6 +23,12 @@ EnemySingleton="*res://Other/EnemySingleton.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+<<<<<<<Updatedupstreamwindow/size/viewport_width=1920
+
+[global_group]
+
+player=""
 
 [input]
 
@@ -109,3 +115,7 @@ Run={
 2d_physics/layer_11="EnemyAttacks"
 2d_physics/layer_13="Player"
 2d_physics/layer_15="Enemies"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

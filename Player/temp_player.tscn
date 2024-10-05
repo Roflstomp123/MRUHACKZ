@@ -9,7 +9,7 @@ colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_k78ve"]
 gradient = SubResource("Gradient_p7mo1")
 
-[node name="temp_player" type="CharacterBody2D"]
+[node name="temp_player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_rdv07")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
