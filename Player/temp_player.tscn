@@ -169,4 +169,6 @@ autoplay = "hewwo"
 top_level = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+enabled = false
 zoom = Vector2(4, 4)
