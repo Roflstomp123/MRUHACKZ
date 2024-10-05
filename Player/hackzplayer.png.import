@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://b6aqnsfr5t38j"
-path="res://.godot/imported/enemy-idle.png-ef986de21d9616e23064e0a9cdfcae8d.ctex"
+uid="uid://coe8bvsg7p2nq"
+path="res://.godot/imported/hackzplayer.png-22e4d593af1342457c6f41c66a601de7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/enemy-idle.png"
-dest_files=["res://.godot/imported/enemy-idle.png-ef986de21d9616e23064e0a9cdfcae8d.ctex"]
+source_file="res://Player/hackzplayer.png"
+dest_files=["res://.godot/imported/hackzplayer.png-22e4d593af1342457c6f41c66a601de7.ctex"]
 
 [params]
 
