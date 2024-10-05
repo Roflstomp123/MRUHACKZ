@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cspfwvj72b3tp"]
+
+[ext_resource type="Script" path="res://Player/Attacks/PlayerAttack.gd" id="1_2x51w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvgm5"]
+radius = 20.67
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_skgir"]
+
+[sub_resource type="Gradient" id="Gradient_c6j81"]
+colors = PackedColorArray(0, 0, 1, 1, 0, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tcwkn"]
+gradient = SubResource("Gradient_c6j81")
+width = 24
+height = 24
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 256
+collision_mask = 16384
+script = ExtResource("1_2x51w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mvgm5")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_skgir")
+
+[node name="temp_sprite" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_tcwkn")
