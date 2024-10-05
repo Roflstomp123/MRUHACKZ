@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://6112qnmwh3b"]
+
+[ext_resource type="Script" path="res://Player/Turrets/turret.gd" id="1_qnbnu"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_whkl3"]
+size = Vector2(20, 20)
+
+[node name="Turret" type="StaticBody2D"]
+script = ExtResource("1_qnbnu")
+
+[node name="temp_sprite" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_whkl3")

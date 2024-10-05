@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://1q40oymcgcqt"]
 
 [ext_resource type="Script" path="res://Enemy/alien.gd" id="1_mms7r"]
-[ext_resource type="Texture2D" uid="uid://1v3m31c8nje7" path="res://Assets/enemy-idle.png" id="2_s8c28"]
+[ext_resource type="Texture2D" uid="uid://b6aqnsfr5t38j" path="res://Assets/enemy-idle.png" id="2_s8c28"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gjtea"]
 atlas = ExtResource("2_s8c28")
@@ -73,12 +73,7 @@ size = Vector2(123, 49)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_myn7n"]
 size = Vector2(30, 30)
 
-
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_238h0"]
-radius = 20.67
-
-collision_mask = 0
+[node name="Orange Alien" type="CharacterBody2D"]
 script = ExtResource("1_mms7r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -97,17 +92,3 @@ shape = SubResource("RectangleShape2D_4dq2m")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 texture = SubResource("PlaceholderTexture2D_myn7n")
-
-[node name="ChangeBehaviour" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
-
-[node name="Hurtbox" type="Area2D" parent="."]
-collision_layer = 16384
-collision_mask = 256
-
-[node name="HealthShape" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource("CircleShape2D_238h0")
-
-[connection signal="timeout" from="ChangeBehaviour" to="." method="_on_change_behaviour_timeout"]
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_health_area_area_entered"]
