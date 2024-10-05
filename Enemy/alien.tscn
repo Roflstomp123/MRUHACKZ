@@ -92,4 +92,3 @@ shape = SubResource("RectangleShape2D_4dq2m")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 texture = SubResource("PlaceholderTexture2D_myn7n")
-
