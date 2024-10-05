@@ -1,35 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwh612pdj51oo"]
+[gd_scene load_steps=6 format=3 uid="uid://dwh612pdj51oo"]
 
 [ext_resource type="PackedScene" uid="uid://d2y3tr3j5exhm" path="res://Player/temp_player.tscn" id="1_hq4be"]
 [ext_resource type="PackedScene" uid="uid://1q40oymcgcqt" path="res://Enemy/alien.tscn" id="2_6bin5"]
-[ext_resource type="PackedScene" uid="uid://3pjtbtv6mgdk" path="res://Enemy/EnemySpawner/enemy_spawner.tscn" id="3_5chmg"]
-[ext_resource type="Script" path="res://Enemy/EnemySpawner/single_enemy_spawn_instruction.gd" id="4_i4r5e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arefr"]
+size = Vector2(64, 64)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ghn1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nlmp"]
 size = Vector2(12, 1079.5)
-
-[sub_resource type="Resource" id="Resource_w5boh"]
-script = ExtResource("4_i4r5e")
-position = Vector2(100, 0)
-enemy_scene = ExtResource("2_6bin5")
-time_offset = 1.0
-state = -1
-
-[sub_resource type="Resource" id="Resource_5xway"]
-script = ExtResource("4_i4r5e")
-position = Vector2(300, 0)
-enemy_scene = ExtResource("2_6bin5")
-time_offset = 4.0
-state = -1
-
-[sub_resource type="Resource" id="Resource_t4g3m"]
-script = ExtResource("4_i4r5e")
-position = Vector2(0, 500)
-enemy_scene = ExtResource("2_6bin5")
-time_offset = 1.0
-state = -1
 
 [node name="temp_level" type="Node2D"]
 
@@ -55,8 +35,4 @@ position = Vector2(1926, 541.25)
 shape = SubResource("RectangleShape2D_8nlmp")
 
 [node name="Node2D" parent="." instance=ExtResource("2_6bin5")]
-position = Vector2(540, 37)
-
-[node name="EnemySpawner" parent="." instance=ExtResource("3_5chmg")]
-enemy_spawner_instructions = Array[ExtResource("4_i4r5e")]([SubResource("Resource_w5boh"), SubResource("Resource_5xway"), SubResource("Resource_t4g3m")])
-metadata/_edit_lock_ = true
+position = Vector2(886, 79)

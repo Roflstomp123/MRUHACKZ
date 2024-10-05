@@ -20,7 +20,7 @@ var attack_cooldown_max:float = 0.2
 var current_modifier:AttackModifier = AttackModifier.new()
 
 ## Attack Modifiers #export?
-var size_increase_modifier:float = 0.4 #scale of projectile
+var size_increase_modifier:float = 0.2 #scale of projectile
 var speed_increase_modifier:float = 100 #pixels/second ??
 
 ## Movement
@@ -43,15 +43,12 @@ func _input(event: InputEvent) -> void:
 		current_modifier.reset()
 		
 		attack_cooldown = attack_cooldown_max
-		
-		
-		
 	## Handling modifiers 
 	# Make sure to only use values that are vars at the top so it's easier to iterate.
 	if event.is_action("Enlarge attack"):
 		current_modifier.size += size_increase_modifier
 		pass
-	#if event.is_action("multi attack")
+	
 		
 
 func _process(delta):
