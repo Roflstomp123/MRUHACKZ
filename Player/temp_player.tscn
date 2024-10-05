@@ -156,7 +156,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="temp_player" type="CharacterBody2D"]
+[node name="temp_player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_rdv07")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
