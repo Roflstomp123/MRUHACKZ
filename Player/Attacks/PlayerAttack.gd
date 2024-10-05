@@ -11,8 +11,8 @@ class_name PlayerAttack
 		#TODO could do radius instead to not mess with the pixel sizing, but eh. 
 		#That's also tough and would require having a ton of sprites.
 		#Prob not worth it
-			
-			
+		
+		
 		#this is dumb??
 		size = val
 		scale = Vector2(size,size)
@@ -30,7 +30,6 @@ func _process(delta: float) -> void:
 func _ready():
 	#runs setter.
 	size = size
-	
 
 
 

@@ -12,7 +12,7 @@ NOTE: Also if we change this, we have to change how apply/remove modifier works 
 
 
 @export var damage:int = 0
-@export var size:int = 0
+@export var size:float = 0
 @export var speed:int = 0
 #@export var damage:int = 0
 #@export var damage:int = 0
