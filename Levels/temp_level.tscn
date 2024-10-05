@@ -35,8 +35,4 @@ position = Vector2(1926, 541.25)
 shape = SubResource("RectangleShape2D_8nlmp")
 
 [node name="Node2D" parent="." instance=ExtResource("2_6bin5")]
-position = Vector2(540, 37)
-
-[node name="EnemySpawner" parent="." instance=ExtResource("3_5chmg")]
-enemy_spawner_instructions = [SubResource("Resource_w5boh"), SubResource("Resource_5xway"), SubResource("Resource_t4g3m")]
-metadata/_edit_lock_ = true
+position = Vector2(886, 79)
