@@ -20,7 +20,7 @@ var attack_cooldown_max:float = 0.2
 var current_modifier:AttackModifier = AttackModifier.new()
 
 ## Attack Modifiers #export?
-var size_increase_modifier:float = 0.2 #scale of projectile
+var size_increase_modifier:float = 0.4 #scale of projectile
 var speed_increase_modifier:float = 100 #pixels/second ??
 
 ## Movement

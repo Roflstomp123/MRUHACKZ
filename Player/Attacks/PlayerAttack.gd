@@ -2,7 +2,7 @@ extends Node2D
 class_name PlayerAttack
 
 ##NOTE: Ensure to add all these properties to all of the function!!!!!
-@export var damage:int = 0
+@export var damage:int = 1
 
 ##NOTE: this being scale means that you have to set the texture to the proper size. This will be a bit tough, sry.
 	## Could change to an independent sprite_size and size
@@ -11,8 +11,8 @@ class_name PlayerAttack
 		#TODO could do radius instead to not mess with the pixel sizing, but eh. 
 		#That's also tough and would require having a ton of sprites.
 		#Prob not worth it
-			
-			
+		
+		
 		#this is dumb??
 		size = val
 		scale = Vector2(size,size)
@@ -30,7 +30,6 @@ func _process(delta: float) -> void:
 func _ready():
 	#runs setter.
 	size = size
-	
 
 
 
