@@ -106,3 +106,7 @@ Run={
 2d_physics/layer_11="EnemyAttacks"
 2d_physics/layer_13="Player"
 2d_physics/layer_15="Enemies"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

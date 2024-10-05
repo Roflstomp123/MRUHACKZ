@@ -167,3 +167,6 @@ autoplay = "hewwo"
 
 [node name="ProjectlesParent" type="Node2D" parent="."]
 top_level = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
