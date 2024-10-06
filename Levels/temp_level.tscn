@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://d2y3tr3j5exhm" path="res://Player/temp_player.tscn" id="1_hq4be"]
 [ext_resource type="PackedScene" uid="uid://3pjtbtv6mgdk" path="res://Enemy/EnemySpawner/enemy_spawner.tscn" id="1_ip621"]
-[ext_resource type="PackedScene" uid="uid://8w20wn4aughi" path="res://Levels/background.tscn" id="1_lxviy"]
+[ext_resource type="PackedScene" uid="uid://dsqqponge0fu2" path="res://Levels/background.tscn" id="1_lxviy"]
 [ext_resource type="PackedScene" uid="uid://7qoxqwxaounk" path="res://Menus/won_ui.tscn" id="2_3xgjj"]
-[ext_resource type="Resource" uid="uid://dbehcikcot87d" path="res://Enemy/EnemySpawner/level_1.tres" id="3_bc3tg"]
+[ext_resource type="Resource" uid="uid://dt86sru3fjaxi" path="res://Enemy/EnemySpawner/level_1.tres" id="3_bc3tg"]
 [ext_resource type="Script" path="res://Enemy/EnemySpawner/enemy_spawner_instructions.gd" id="3_pa6ky"]
 [ext_resource type="Resource" uid="uid://on72gcqadsuh" path="res://Enemy/EnemySpawner/level_2.tres" id="5_hl154"]
 [ext_resource type="AudioStream" uid="uid://dwhuxeixxg6d1" path="res://Assets/battlemusic.mp3" id="7_mp6pu"]
