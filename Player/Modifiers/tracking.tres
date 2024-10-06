@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AttackModifier" load_steps=2 format=3 uid="uid://ca3f8k5a4ipd"]
+
+[ext_resource type="Script" path="res://Player/Attacks/attack_modifier.gd" id="1_v18hk"]
+
+[resource]
+script = ExtResource("1_v18hk")
+damage = 0.0
+size = 0.0
+speed = 0.0
+cooldown = 0.0
+tracking = true
+input_name = "tracking"
