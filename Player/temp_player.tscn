@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://vm71v14whfy6" path="res://Assets/hackzplayer.png" id="2_tsupp"]
 [ext_resource type="PackedScene" uid="uid://bhii2lrlym0ad" path="res://Menus/make_turret_menu.tscn" id="3_e0cnx"]
 [ext_resource type="AudioStream" uid="uid://bw0gg71e430qq" path="res://Assets/pew-pew-81279.mp3" id="5_ut0v5"]
-[ext_resource type="PackedScene" uid="uid://cq87s5ojjn0f" path="res://Levels/death_menu.tscn" id="5_wpvdd"]
+[ext_resource type="PackedScene" uid="uid://bhphqnlr5pagf" path="res://Levels/death_menu.tscn" id="5_wpvdd"]
 [ext_resource type="AudioStream" uid="uid://kt2068cme725" path="res://Assets/bullet sound.mp3" id="6_vmvwr"]
 [ext_resource type="AudioStream" uid="uid://bkcvpfcrr288n" path="res://Assets/hurt.mp3" id="7_1m0kn"]
 
