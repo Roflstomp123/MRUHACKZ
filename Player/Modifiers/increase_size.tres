@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_fyvud")
-damage = 0
+damage = 0.0
 size = 0.4
-speed = 0
+speed = 0.0
 cooldown = 0.2
 input_name = "Enlarge attack"
