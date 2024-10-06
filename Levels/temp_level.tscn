@@ -1,9 +1,17 @@
-[gd_scene load_steps=10 format=4 uid="uid://dwh612pdj51oo"]
+[gd_scene load_steps=13 format=4 uid="uid://dwh612pdj51oo"]
 
 [ext_resource type="PackedScene" uid="uid://d2y3tr3j5exhm" path="res://Player/temp_player.tscn" id="1_hq4be"]
+[ext_resource type="PackedScene" uid="uid://3pjtbtv6mgdk" path="res://Enemy/EnemySpawner/enemy_spawner.tscn" id="1_ip621"]
+[ext_resource type="Script" path="res://Enemy/EnemySpawner/single_enemy_spawn_instruction.gd" id="2_4jaty"]
 [ext_resource type="PackedScene" uid="uid://1q40oymcgcqt" path="res://Enemy/alien.tscn" id="2_6bin5"]
 [ext_resource type="Texture2D" uid="uid://dirhmku001wcg" path="res://Assets/space-background.png" id="3_5f6mu"]
 [ext_resource type="PackedScene" path="res://Enemy/Pink alien.tscn" id="4_34cgj"]
+
+[sub_resource type="Resource" id="Resource_dka08"]
+script = ExtResource("2_4jaty")
+position = Vector2(0, 0)
+time_offset = 0.0
+state = -1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arefr"]
 size = Vector2(64, 64)
@@ -3605,6 +3613,13 @@ sources/0 = SubResource("TileSetAtlasSource_1j1aj")
 
 [node name="temp_level" type="Node2D"]
 
+[node name="EnemySpawner" parent="." instance=ExtResource("1_ip621")]
+enemy_spawner_instructions = Array[ExtResource("2_4jaty")]([SubResource("Resource_dka08")])
+
+[node name="Orange Alien" parent="EnemySpawner" instance=ExtResource("2_6bin5")]
+
+[node name="Bigpink" parent="EnemySpawner" instance=ExtResource("4_34cgj")]
+
 [node name="temp_player" parent="." instance=ExtResource("1_hq4be")]
 position = Vector2(872, 1048)
 
@@ -3626,9 +3641,6 @@ physics_material_override = SubResource("PhysicsMaterial_ghn1h")
 position = Vector2(1926, 541.25)
 shape = SubResource("RectangleShape2D_8nlmp")
 
-[node name="Node2D" parent="." instance=ExtResource("2_6bin5")]
-position = Vector2(522.236, 831.942)
-
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 show_behind_parent = true
 scale = Vector2(2, 2)
@@ -3642,6 +3654,3 @@ physics_material_override = SubResource("PhysicsMaterial_ghn1h")
 position = Vector2(961.063, 1102)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_8nlmp")
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("4_34cgj")]
-position = Vector2(853, 521)

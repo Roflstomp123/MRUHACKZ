@@ -14,7 +14,7 @@ var current_time_to_spawn: float:
 		pass 
 var instruction_index: int = 0 
 var current_instructions:SingleEnemySpawnInstruction
-
+@onready var player = $"../temp_player" 
 
 
 

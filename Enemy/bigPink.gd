@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 
 
-const SPEED = 50
+const SPEED = 30
 var health = 2:
 	set(val):
 		health = val
@@ -12,7 +12,7 @@ var health = 2:
 			
 
 var transitioning = false
-var state = CIRCLE_ATTACK
+var state = FOLLOW_PLAYER
 ## States
 enum {
 	MOVE_DOWN,
