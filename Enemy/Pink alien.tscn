@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://pccm7ghaxms2"]
+[gd_scene load_steps=22 format=3 uid="uid://dkdmeb6kjd1a6"]
 
 [ext_resource type="Script" path="res://Enemy/bigPink.gd" id="1_8maj4"]
 [ext_resource type="Texture2D" uid="uid://cdoc2k8e726tf" path="res://Assets/biggest-enemy-idle.png" id="1_mdn8t"]

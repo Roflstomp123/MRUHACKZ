@@ -47,7 +47,7 @@ func reset():
 	size = 0
 	speed = 0
 	cooldown = 0
-	tracking = true
+	tracking = false
 	pass
 
 func add(modifier:AttackModifier):

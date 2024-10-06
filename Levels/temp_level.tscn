@@ -30,7 +30,8 @@ offset_right = -13.0
 offset_bottom = 3.0
 
 [node name="WonUI" parent="CanvasLayer" instance=ExtResource("2_3xgjj")]
-visible = false
+offset_top = 140.0
+offset_bottom = 140.0
 
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("won_ui") instance=ExtResource("1_ip621")]
 level_list = Array[ExtResource("3_pa6ky")]([ExtResource("3_bc3tg"), ExtResource("5_hl154")])

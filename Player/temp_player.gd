@@ -88,6 +88,10 @@ func _input(event: InputEvent) -> void:
 		current_modifier.size += size_increase_modifier
 		pass
 	#if event.is_action("multi attack")
+	## Should do a for inputs like in turrets, but eh
+	if event.is_action("tracking"):
+		current_modifier.add(preload("res://Player/Modifiers/tracking.tres"))
+	
 	
 	if event.is_action_pressed("open_turret_menu"):
 		#TODO pausing?

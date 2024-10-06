@@ -29,6 +29,7 @@ var _done_spawning:bool = false
 
 func _ready():
 	current_time_to_spawn = 2#enemy_spawner_instructions.spawn_instructions[0].time_offset
+	level_index = -1
 	pass
 
 func _process(delta: float) -> void:
@@ -50,24 +51,25 @@ func next_round():
 	
 
 func _spawn_next():
-	if instruction_index < level_list[level_index].spawn_instructions.size():
-			
-		current_instructions = level_list[level_index].spawn_instructions[instruction_index]
-		
-		var new_enemy = current_instructions.enemy_scene.instantiate()
-		add_child(new_enemy)
-		new_enemy.position = current_instructions.position
-		if current_instructions.state != -1:
-			#TODO fix this breaking on no state
-			new_enemy.state = current_instructions.state
-		
-		##this is changed at the end so that it keeps the current time rather than being time for the next spawn.
-		instruction_index += 1
-		#double check bad :(
+	if level_index >= 0:
 		if instruction_index < level_list[level_index].spawn_instructions.size():
-			current_time_to_spawn = level_list[level_index].spawn_instructions[instruction_index].time_offset
-		
-		
-		pass
-	else:
-		_done_spawning = true
+				
+			current_instructions = level_list[level_index].spawn_instructions[instruction_index]
+			
+			var new_enemy = current_instructions.enemy_scene.instantiate()
+			add_child(new_enemy)
+			new_enemy.position = current_instructions.position
+			if current_instructions.state != -1:
+				#TODO fix this breaking on no state
+				new_enemy.state = current_instructions.state
+			
+			##this is changed at the end so that it keeps the current time rather than being time for the next spawn.
+			instruction_index += 1
+			#double check bad :(
+			if instruction_index < level_list[level_index].spawn_instructions.size():
+				current_time_to_spawn = level_list[level_index].spawn_instructions[instruction_index].time_offset
+			
+			
+			pass
+		else:
+			_done_spawning = true

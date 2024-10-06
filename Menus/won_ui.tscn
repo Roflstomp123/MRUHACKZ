@@ -73,7 +73,6 @@ theme_override_constants/separation = 32
 theme_override_styles/separator = SubResource("StyleBoxEmpty_o0wib")
 
 [node name="ConfirmContainer" type="PanelContainer" parent="VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -85,26 +84,10 @@ size_flags_horizontal = 4
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
-text = "Are you sure?"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ConfirmContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="LeaveButton" type="Button" parent="VBoxContainer/ConfirmContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "GET ME OUT!"
-
-[node name="VSeparator" type="VSeparator" parent="VBoxContainer/ConfirmContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 64
-theme_override_styles/separator = SubResource("StyleBoxEmpty_luqwj")
-
-[node name="NeverLeaveButton" type="Button" parent="VBoxContainer/ConfirmContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "IM NEVER LEAVING"
+text = "You ulocked a new shortcut!
+Use Alt + D
+To make your lasers follow enemies."
+horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/ConfirmContainer/VBoxContainer"]
 layout_mode = 2

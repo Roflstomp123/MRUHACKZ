@@ -88,6 +88,7 @@ func apply_modifier(modifier:AttackModifier, mult:int = 1): #mult just for remov
 	cooldown += modifier.cooldown
 	
 	tracking = tracking or modifier.tracking
+	
 	pass
 
 ## This is never used
