@@ -4,7 +4,7 @@ extends Node2D
 """
 Works its way through the list, spawning enemies 
 """
-@export var enemy_spawner_instructions:Array[SingleEnemySpawnInstruction] = []#:EnemySpawnInstructions
+@export var enemy_spawner_instructions:EnemySpawnInstructions = EnemySpawnInstructions.new()
 
 var current_time_to_spawn: float:
 	set(val):
@@ -19,7 +19,7 @@ var current_instructions:SingleEnemySpawnInstruction
 
 
 func _ready():
-	current_time_to_spawn = enemy_spawner_instructions[0].time_offset
+	current_time_to_spawn = 2#enemy_spawner_instructions.spawn_instructions[0].time_offset
 	pass
 
 func _process(delta: float) -> void:
@@ -27,9 +27,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _spawn_next():
-	if instruction_index < enemy_spawner_instructions.size():
+	if instruction_index < enemy_spawner_instructions.spawn_instructions.size():
 			
-		current_instructions = enemy_spawner_instructions[instruction_index]
+		current_instructions = enemy_spawner_instructions.spawn_instructions[instruction_index]
 		
 		var new_enemy = current_instructions.enemy_scene.instantiate()
 		add_child(new_enemy)
@@ -41,8 +41,8 @@ func _spawn_next():
 		##this is changed at the end so that it keeps the current time rather than being time for the next spawn.
 		instruction_index += 1
 		#double check bad :(
-		if instruction_index < enemy_spawner_instructions.size():
-			current_time_to_spawn = enemy_spawner_instructions[instruction_index].time_offset
+		if instruction_index < enemy_spawner_instructions.spawn_instructions.size():
+			current_time_to_spawn = enemy_spawner_instructions.spawn_instructions[instruction_index].time_offset
 		
 		
 		pass

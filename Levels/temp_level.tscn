@@ -1,12 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dwh612pdj51oo"]
+[gd_scene load_steps=10 format=3 uid="uid://dwh612pdj51oo"]
 
 [ext_resource type="PackedScene" uid="uid://d2y3tr3j5exhm" path="res://Player/temp_player.tscn" id="1_hq4be"]
 [ext_resource type="PackedScene" uid="uid://3pjtbtv6mgdk" path="res://Enemy/EnemySpawner/enemy_spawner.tscn" id="1_ip621"]
-[ext_resource type="PackedScene" uid="uid://8w20wn4aughi" path="res://Levels/background.tscn" id="1_lxviy"]
-[ext_resource type="Script" path="res://Enemy/EnemySpawner/single_enemy_spawn_instruction.gd" id="2_4jaty"]
-[ext_resource type="PackedScene" uid="uid://1q40oymcgcqt" path="res://Enemy/alien.tscn" id="2_6bin5"]
-[ext_resource type="PackedScene" uid="uid://dkdmeb6kjd1a6" path="res://Enemy/Pink alien.tscn" id="4_34cgj"]
+[ext_resource type="PackedScene" uid="uid://dsqqponge0fu2" path="res://Levels/background.tscn" id="1_lxviy"]
+[ext_resource type="Resource" uid="uid://dawmsbskpx664" path="res://Enemy/EnemySpawner/level_1.tres" id="4_e1drs"]
 [ext_resource type="AudioStream" uid="uid://c6yl52otepoe5" path="res://Assets/026491_pixel-song-8-72675.mp3" id="8_mjc66"]
+[ext_resource type="PackedScene" uid="uid://cq87s5ojjn0f" path="res://Levels/death_menu.tscn" id="9_88bg6"]
 
 [sub_resource type="Resource" id="Resource_dka08"]
 script = ExtResource("2_4jaty")
@@ -45,24 +44,28 @@ size = Vector2(34.9999, 1889.88)
 
 [node name="temp_level" type="Node2D"]
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="DeathMenu" parent="CanvasLayer2" instance=ExtResource("9_88bg6")]
+visible = false
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -20
 follow_viewport_enabled = true
 
 [node name="Background" parent="CanvasLayer" instance=ExtResource("1_lxviy")]
-offset_left = -13.0
-offset_top = 3.0
-offset_right = -13.0
-offset_bottom = 3.0
+offset_left = -194.0
+offset_top = -2.0
+offset_right = -194.0
+offset_bottom = -2.0
+scale = Vector2(1.17032, 1.07793)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("1_ip621")]
-enemy_spawner_instructions = Array[ExtResource("2_4jaty")]([SubResource("Resource_dka08"), SubResource("Resource_y3af4"), SubResource("Resource_wun0i"), SubResource("Resource_wcf3v")])
+enemy_spawner_instructions = ExtResource("4_e1drs")
 
-[node name="Bigpink" parent="EnemySpawner" instance=ExtResource("4_34cgj")]
-position = Vector2(856, -144)
-
-[node name="temp_player" parent="." instance=ExtResource("1_hq4be")]
+[node name="temp_player" parent="." node_paths=PackedStringArray("deathmenu") instance=ExtResource("1_hq4be")]
 position = Vector2(872, 1048)
+deathmenu = NodePath("../CanvasLayer2/DeathMenu")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="temp_player"]
 visible = false

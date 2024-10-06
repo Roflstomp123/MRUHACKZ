@@ -54,8 +54,9 @@ theme_override_constants/margin_bottom = 32
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 24
-text = "All Sound Effects Pixabay!"
+theme_override_font_sizes/font_size = 32
+text = "All Sound Effects 
+from Pixabay!"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -63,16 +64,19 @@ size_flags_horizontal = 4
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 64
 theme_override_styles/separator = SubResource("StyleBoxEmpty_3ytya")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 128
 text = "Space KEYS"
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 64
 theme_override_styles/separator = SubResource("StyleBoxEmpty_3ytya")
 
@@ -82,30 +86,36 @@ size_flags_horizontal = 4
 
 [node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
 text = "START"
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 64
 theme_override_styles/separator = SubResource("StyleBoxEmpty_aaws5")
 
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
 text = "LEAVE"
 
 [node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 32
 theme_override_styles/separator = SubResource("StyleBoxEmpty_3ytya")
 
 [node name="ConfirmContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ConfirmContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/ConfirmContainer/VBoxContainer"]
 layout_mode = 2

@@ -23,7 +23,7 @@ var enemy_scenes:Dictionary = {
 	
 }
 
-@export var spawn_instructions:Array = []
+@export var spawn_instructions:Array[SingleEnemySpawnInstruction] = []
 
 
 func add_spawn_instruction(enemy_scene_name:String, position:float, behaviour:int):

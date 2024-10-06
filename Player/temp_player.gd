@@ -114,6 +114,7 @@ func _input(event: InputEvent) -> void:
 func _process(delta):
 	## Movement 
 	move_direction.x = Input.get_axis("Move left", "Move right")
+	move_direction.y = Input.get_axis("Move up", "Move down")
 	velocity = move_direction * move_speed #no mult by delta  since move_and_slide should handle that.
 	if velocity.x > 0:
 		$AnimatedSprite2D.scale.x = -5
@@ -124,17 +125,18 @@ func _process(delta):
 	## Attack
 	attack_cooldown -= delta
 	
-	if health_current <= 0:
-		deathmenu.visible = true
-		get_tree().paused = true
+
 	pass
 
 
 func take_damage(damage):
-	$owTimer.start()
-	$AnimatedSprite2D.play("ow")
-	$AudioStreamPlayer2D3.play()
-	health_current -= damage
+	health_current -= 100
+	if health_current <= 0:
+		$AnimationPlayer.play("byebye")
+	else:
+		$owTimer.start()
+		$AnimatedSprite2D.play("ow")
+		$AudioStreamPlayer2D3.play()
 	pass
 
 func _on_ow_timer_timeout():
@@ -148,3 +150,8 @@ func _on_area_2d_area_entered(area):
 func _on_turret_catching_area_body_entered(body: Node2D) -> void:
 	if body is Turret:
 		body.queue_free()
+func after_death():
+	deathmenu.visible = true
+	set_process_mode(4)
+	print("dead")
+	pass 

@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="EnemySpawnInstructions" load_steps=9 format=3 uid="uid://dawmsbskpx664"]
+
+[ext_resource type="Script" path="res://Enemy/EnemySpawner/enemy_spawner_instructions.gd" id="1_yqmrv"]
+[ext_resource type="Script" path="res://Enemy/EnemySpawner/single_enemy_spawn_instruction.gd" id="2_yiqc2"]
+[ext_resource type="PackedScene" uid="uid://1q40oymcgcqt" path="res://Enemy/alien.tscn" id="3_2fv5p"]
+
+[sub_resource type="Resource" id="Resource_y1tvo"]
+script = ExtResource("2_yiqc2")
+position = Vector2(500, 0)
+enemy_scene = ExtResource("3_2fv5p")
+time_offset = 1.0
+state = -1
+
+[sub_resource type="Resource" id="Resource_vbngj"]
+script = ExtResource("2_yiqc2")
+position = Vector2(1000, 0)
+enemy_scene = ExtResource("3_2fv5p")
+time_offset = 1.0
+state = -1
+
+[sub_resource type="Resource" id="Resource_5sfbg"]
+script = ExtResource("2_yiqc2")
+position = Vector2(1500, 0)
+enemy_scene = ExtResource("3_2fv5p")
+time_offset = 5.0
+state = -1
+
+[sub_resource type="Resource" id="Resource_mkyjt"]
+script = ExtResource("2_yiqc2")
+position = Vector2(750, 0)
+enemy_scene = ExtResource("3_2fv5p")
+time_offset = 6.0
+state = -1
+
+[sub_resource type="Resource" id="Resource_32j2p"]
+script = ExtResource("2_yiqc2")
+position = Vector2(250, 0)
+enemy_scene = ExtResource("3_2fv5p")
+time_offset = 8.0
+state = -1
+
+[resource]
+script = ExtResource("1_yqmrv")
+spawn_instructions = Array[ExtResource("2_yiqc2")]([SubResource("Resource_y1tvo"), SubResource("Resource_vbngj"), SubResource("Resource_5sfbg"), SubResource("Resource_mkyjt"), SubResource("Resource_32j2p")])
