@@ -9,6 +9,7 @@ const TURRET = preload("res://Player/Turrets/turret.tscn")
 @onready var turrent_parent: Node2D = $TurrentParent
 
 const TURRET_POSITION_OFFSET = 100
+@export var deathmenu: Control
 
 # Not sure how to organize the modifiers.
 # Just having them in a dictionary would be good, but that also makes customizability harder.
@@ -39,11 +40,19 @@ var move_speed:float = 400
 func _input(event: InputEvent) -> void:
 	
 	## Movement handled inside of process because that's eaiser.
-	
 	## Committing to an attack
 	if event.is_action("Finish attack") and attack_cooldown < 0:
 		var new_projectile:PlayerAttack = player_attack.instantiate()
 		projectles_parent.add_child(new_projectile)
+		var pew_chance = randf()
+		if pew_chance < 0.01:
+			$AudioStreamPlayer2D.play()
+		else:
+			var vol = randf_range(0.5, 2)
+			var pitch = randf_range(0.5, 1)
+			$AudioStreamPlayer2D2.volume_db = vol
+			$AudioStreamPlayer2D2.pitch_scale = pitch
+			$AudioStreamPlayer2D2.play()
 		#Done since projectiles_parent is a canvas item.
 		new_projectile.position = position
 		
@@ -92,16 +101,22 @@ func _process(delta):
 	## Attack
 	attack_cooldown -= delta
 	
-	
-	
+	if health_current <= 0:
+		deathmenu.visible = true
+		get_tree().paused = true
 	pass
+
 
 func take_damage(damage):
 	$owTimer.start()
 	$AnimatedSprite2D.play("ow")
+	$AudioStreamPlayer2D3.play()
 	health_current -= damage
 	pass
 
 func _on_ow_timer_timeout():
 	$AnimatedSprite2D.play("hewwo")
 	pass 
+
+func _on_area_2d_area_entered(area):
+	take_damage(10)

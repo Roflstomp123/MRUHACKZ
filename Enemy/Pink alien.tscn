@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://wuinle5djp7i"]
+[gd_scene load_steps=21 format=3 uid="uid://pccm7ghaxms2"]
 
 [ext_resource type="Script" path="res://Enemy/bigPink.gd" id="1_8maj4"]
 [ext_resource type="Texture2D" uid="uid://cdoc2k8e726tf" path="res://Assets/biggest-enemy-idle.png" id="1_mdn8t"]
@@ -137,12 +137,11 @@ scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_0l51j")
 
 [node name="Hurt box" type="Area2D" parent="."]
-collision_layer = 16384
-collision_mask = 256
+collision_layer = 17408
+collision_mask = 4352
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt box"]
 position = Vector2(-8, -15)
 shape = SubResource("CircleShape2D_fsmg6")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="area_entered" from="Hurt box" to="." method="_on_hurt_box_area_entered"]
