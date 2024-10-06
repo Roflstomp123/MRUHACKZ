@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="EnemySpawnInstructions" load_steps=12 format=3 uid="uid://on72gcqadsuh"]
+
+[ext_resource type="Script" path="res://Enemy/EnemySpawner/enemy_spawner_instructions.gd" id="1_5un6a"]
+[ext_resource type="Script" path="res://Enemy/EnemySpawner/single_enemy_spawn_instruction.gd" id="2_05vq4"]
+[ext_resource type="PackedScene" uid="uid://1q40oymcgcqt" path="res://Enemy/alien.tscn" id="3_eim7a"]
+[ext_resource type="PackedScene" path="res://Enemy/purps.tscn" id="4_jpfoo"]
+[ext_resource type="PackedScene" uid="uid://dkdmeb6kjd1a6" path="res://Enemy/Pink alien.tscn" id="5_twrg2"]
+
+[sub_resource type="Resource" id="Resource_gp1bf"]
+script = ExtResource("2_05vq4")
+position = Vector2(500, 0)
+enemy_scene = ExtResource("3_eim7a")
+time_offset = 1.0
+state = -1
+
+[sub_resource type="Resource" id="Resource_2kipu"]
+script = ExtResource("2_05vq4")
+position = Vector2(800, 0)
+enemy_scene = ExtResource("4_jpfoo")
+time_offset = 0.5
+state = -1
+
+[sub_resource type="Resource" id="Resource_w8gt8"]
+script = ExtResource("2_05vq4")
+position = Vector2(200, 0)
+enemy_scene = ExtResource("4_jpfoo")
+time_offset = 1.0
+state = -1
+
+[sub_resource type="Resource" id="Resource_p5iy7"]
+script = ExtResource("2_05vq4")
+position = Vector2(300, 0)
+enemy_scene = ExtResource("5_twrg2")
+time_offset = 0.5
+state = -1
+
+[sub_resource type="Resource" id="Resource_g0rba"]
+script = ExtResource("2_05vq4")
+position = Vector2(500, 0)
+enemy_scene = ExtResource("4_jpfoo")
+time_offset = 0.5
+state = -1
+
+[sub_resource type="Resource" id="Resource_4rwxx"]
+script = ExtResource("2_05vq4")
+position = Vector2(800, 0)
+enemy_scene = ExtResource("5_twrg2")
+time_offset = 0.3
+state = -1
+
+[resource]
+script = ExtResource("1_5un6a")
+spawn_instructions = Array[ExtResource("2_05vq4")]([SubResource("Resource_gp1bf"), SubResource("Resource_2kipu"), SubResource("Resource_w8gt8"), SubResource("Resource_p5iy7"), SubResource("Resource_g0rba"), SubResource("Resource_4rwxx")])
