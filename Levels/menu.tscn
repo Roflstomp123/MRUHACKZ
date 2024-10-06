@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://i6wej62j6blw"]
 
 [ext_resource type="Script" path="res://Levels/menu.gd" id="1_nrn13"]
-[ext_resource type="Texture2D" uid="uid://dirhmku001wcg" path="res://Assets/space-background.png" id="2_xxxpq"]
+[ext_resource type="PackedScene" uid="uid://dsqqponge0fu2" path="res://Levels/background.tscn" id="2_t3c17"]
 [ext_resource type="Texture2D" uid="uid://dq1ej5f15s2da" path="res://Assets/station.png" id="3_4h86i"]
 [ext_resource type="Texture2D" uid="uid://bs2kk7behjiuc" path="res://Assets/sun.png" id="3_dnsnn"]
 [ext_resource type="AudioStream" uid="uid://dpeuxcuwxwtaa" path="res://Assets/8-bit-horror-noises-63944.mp3" id="5_w851l"]
@@ -21,15 +21,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_nrn13")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" parent="." instance=ExtResource("2_t3c17")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 19.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_xxxpq")
 
 [node name="Sun" type="Sprite2D" parent="."]
 position = Vector2(921, 332)
@@ -52,9 +45,9 @@ offset_right = 10.0
 offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 16
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
 [node name="Label2" type="Label" parent="MarginContainer"]
@@ -70,13 +63,13 @@ size_flags_horizontal = 4
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 64
 theme_override_styles/separator = SubResource("StyleBoxEmpty_3ytya")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 128
-text = "GAMEGAMEGAME!!!"
+text = "Space KEYS"
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

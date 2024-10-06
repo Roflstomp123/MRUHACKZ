@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 
 const SPEED = 50
-var health = 2:
+var health = 3:
 	set(val):
 		health = val
 		if health <= 0:

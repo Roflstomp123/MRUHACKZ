@@ -32,9 +32,6 @@ func _ready():
 	#runs setter.
 	size = size
 
-
-
-
 ## Modifier stuff
 func apply_modifier(modifier:AttackModifier, mult:int = 1): #mult just for removing it.
 	damage += modifier.damage * mult
@@ -44,6 +41,4 @@ func apply_modifier(modifier:AttackModifier, mult:int = 1): #mult just for remov
 	pass
 
 func remove_modifier(modifier:AttackModifier):
-	
-	#this is easier, and I won't forget things.
 	apply_modifier(modifier, -1)

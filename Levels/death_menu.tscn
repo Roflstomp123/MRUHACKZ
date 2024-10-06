@@ -1,26 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhphqnlr5pagf"]
 
-[ext_resource type="Texture2D" uid="uid://dd63l17ltvfwj" path="res://Assets/screen-overlay.png" id="1_cm6gr"]
 [ext_resource type="Script" path="res://Levels/death_menu.gd" id="1_pi4yn"]
+[ext_resource type="PackedScene" uid="uid://dsqqponge0fu2" path="res://Levels/background.tscn" id="2_1nm67"]
 [ext_resource type="FontFile" uid="uid://ctqh57l0ggcan" path="res://Assets/6809 Chargen.otf" id="2_v0syj"]
 
 [node name="DeathMenu" type="Control"]
 process_mode = 2
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1920.0
-offset_bottom = -1080.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pi4yn")
 
-[node name="Screen-overlay" type="Sprite2D" parent="."]
-position = Vector2(925, 539)
-scale = Vector2(4.66797, 3.08203)
-texture = ExtResource("1_cm6gr")
+[node name="Background" parent="." instance=ExtResource("2_1nm67")]
+layout_mode = 1
 
 [node name="Game Over" type="Label" parent="."]
 layout_mode = 0
