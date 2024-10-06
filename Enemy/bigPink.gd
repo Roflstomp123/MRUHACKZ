@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 			if get_parent().player:
 				var player = get_parent().player
 				var player_direction = global_position.direction_to(player.global_position)
-				rotation = player_direction.angle()
+				rotation = player_direction.angle() - 90
 				move_and_slide()
 				if player_direction.x > 0:
 					velocity.x = SPEED
@@ -61,9 +61,7 @@ func _physics_process(delta: float) -> void:
 		ATTACK:
 			#print("BOOM!")
 			pass
-			
-	
-	
+
 func kill():
 	animated_sprite_2d.play("Death")
 
@@ -71,8 +69,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if health <= 0:
 		queue_free()
 		
-	
-
-
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	health <= 0
+	health -= 1
+	

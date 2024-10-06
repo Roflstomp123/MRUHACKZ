@@ -8,7 +8,6 @@ func _process(delta):
 		tween.tween_property($Station, "position", Vector2(1400, 700), 4)
 		tween.tween_property($Station, "rotation", 0.2, 8)
 		tween.tween_property($Station, "position", Vector2(1300, 800), 4)
-		#tween.tween_property($Station, "rotation", -0.2, 4)
 		tween.tween_property($Station, "position", Vector2(1200, 700), 4)
 		tween.tween_property($Station, "rotation", 0, 8)
 		tween.tween_property($Station, "position", Vector2(1400, 700), 4)

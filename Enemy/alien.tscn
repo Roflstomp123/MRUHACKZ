@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://1q40oymcgcqt"]
+[gd_scene load_steps=19 format=3 uid="uid://1q40oymcgcqt"]
 
 [ext_resource type="Script" path="res://Enemy/alien.gd" id="1_mms7r"]
 [ext_resource type="Texture2D" uid="uid://twvr14n5bo4r" path="res://Assets/enemy-explode.png" id="2_0o23c"]
@@ -100,6 +100,9 @@ size = Vector2(50, 49)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_myn7n"]
 size = Vector2(30, 30)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_d1kw6"]
+radius = 36.0139
+
 [node name="Orange Alien" type="CharacterBody2D"]
 script = ExtResource("1_mms7r")
 
@@ -107,10 +110,8 @@ script = ExtResource("1_mms7r")
 position = Vector2(2.5, -5.5)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_5d1hr")
-animation = &"Death"
+animation = &"Orange"
 autoplay = "Orange"
-frame = 5
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -121,4 +122,14 @@ shape = SubResource("RectangleShape2D_4dq2m")
 visible = false
 texture = SubResource("PlaceholderTexture2D_myn7n")
 
+[node name="hurt box" type="Area2D" parent="."]
+collision_layer = 16384
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt box"]
+position = Vector2(2, -51)
+shape = SubResource("CircleShape2D_d1kw6")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="hurt box" to="." method="_on_hurt_box_area_entered"]
+[connection signal="body_entered" from="hurt box" to="." method="_on_hurt_box_body_entered"]

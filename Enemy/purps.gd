@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 
 
-const SPEED = 50
+const SPEED = 30
 var health = 2:
 	set(val):
 		health = val
@@ -12,7 +12,7 @@ var health = 2:
 			
 
 var transitioning = false
-var state = CIRCLE_ATTACK
+var state = FOLLOW_PLAYER
 ## States
 enum {
 	MOVE_DOWN,
@@ -43,9 +43,12 @@ func _physics_process(delta: float) -> void:
 			if get_parent().player:
 				var player = get_parent().player
 				var player_direction = global_position.direction_to(player.global_position)
-				rotation = player_direction.angle()
+				rotation = player_direction.angle() - 90
 				move_and_slide()
-				
+				if player_direction.x > 0:
+					velocity.x = SPEED
+				elif player_direction.x < 0:
+					velocity.x = 0- SPEED
 			pass
 		CIRCLE_ATTACK:
 			if !transitioning:
@@ -58,9 +61,7 @@ func _physics_process(delta: float) -> void:
 		ATTACK:
 			#print("BOOM!")
 			pass
-			
-	
-	
+
 func kill():
 	animated_sprite_2d.play("Death")
 
@@ -68,14 +69,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if health <= 0:
 		queue_free()
 		
-func _on_hurt_box_area_entered(area: Area2D) -> void:
+
+func _on_hurt_box_area_exited(area: Area2D) -> void:
 	health <= 0
 	health -= 1
-
-
-
-func _on_area_2d_body_entered(body: Node):
-	if body.is_in_group("player"):
-		body.take_damage(10)
-		health = 0
-	pass # Replace with function body.

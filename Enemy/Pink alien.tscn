@@ -119,28 +119,29 @@ animations = [{
 radius = 18.0278
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fsmg6"]
-radius = 118.207
+radius = 97.2523
 
 [node name="Bigpink" type="CharacterBody2D"]
 script = ExtResource("1_8maj4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(7, 7)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_ts2wy")
 animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(11.9478, -21.8539)
-scale = Vector2(7, 7)
+scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_0l51j")
 
 [node name="Hurt box" type="Area2D" parent="."]
-collision_layer = 16385
-collision_mask = 257
+collision_layer = 16384
+collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt box"]
-position = Vector2(12, -23)
+position = Vector2(-8, -15)
 shape = SubResource("CircleShape2D_fsmg6")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
