@@ -7,6 +7,7 @@ var player_attack:PackedScene = preload("res://Player/Attacks/PlayerAttack.tscn"
 
 const TURRET = preload("res://Player/Turrets/turret.tscn")
 @onready var turrent_parent: Node2D = $TurrentParent
+@onready var health_bar = $ColorRect/healthBar
 
 const TURRET_POSITION_OFFSET = 100
 @export var deathmenu: Control
@@ -22,8 +23,8 @@ var shake_fade = 5.0
 var shake_strength = 0.0
 
 ## Health
-var health_max = 100
-var health_current = 50
+var health_max = 100.0
+var health_current = 50.0
 
 ## Attack
 var attack_cooldown:float = 0 #in secconds
@@ -115,6 +116,9 @@ func _input(event: InputEvent) -> void:
 			pass
 
 func _process(delta):
+	
+	health_bar.scale.x = health_current/health_max
+	
 	## Movement 
 	move_direction.x = Input.get_axis("Move left", "Move right")
 	move_direction.y = Input.get_axis("Move up", "Move down")
@@ -134,7 +138,7 @@ func _process(delta):
 	pass
 
 func take_damage(damage):
-	health_current -= 100
+	health_current -= damage
 	random_strength = 15.0
 	apply_shake()
 	if health_current <= 0:

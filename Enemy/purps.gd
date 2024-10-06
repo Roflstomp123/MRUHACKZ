@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 			if get_parent().player:
 				var player = get_parent().player
 				var player_direction = global_position.direction_to(player.global_position)
-				rotation = player_direction.angle() - 90
+				rotation = player_direction.angle() - 1.57
 				move_and_slide()
 				if player_direction.x > 0:
 					velocity.x = SPEED
@@ -75,9 +75,16 @@ func kill():
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if health <= 0:
 		queue_free()
-		
-		
 
+func shoot():
+	const BULLET = preload("res://Enemy/bullet.tscn")
+	var new_bullet = BULLET.instantiate()
+	new_bullet.global_position = global_position
+	new_bullet.global_rotation = global_rotation - 1.57
+	get_parent().add_child(new_bullet)
+
+func _on_timer_timeout():
+	shoot()
 
 func _on_hurt_box_area_entered(area):
 	health -= 1
