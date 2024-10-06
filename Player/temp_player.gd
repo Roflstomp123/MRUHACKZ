@@ -6,7 +6,6 @@ var player_attack:PackedScene = preload("res://Player/Attacks/PlayerAttack.tscn"
 @onready var make_turret_menu: MarginContainer = $CanvasLayer/MakeTurretMenu
 @export var deathmenu: Control
 
-
 # Not sure how to organize the modifiers.
 # Just having them in a dictionary would be good, but that also makes customizability harder.
 # Just moving all of that to the modifier _init, though this is not necesserally the greatest idea.
@@ -36,7 +35,6 @@ var move_speed:float = 400
 func _input(event: InputEvent) -> void:
 	
 	## Movement handled inside of process because that's eaiser.
-	
 	## Committing to an attack
 	if event.is_action_pressed("Finish attack") and attack_cooldown < 0:
 		var new_projectile:PlayerAttack = player_attack.instantiate()
@@ -48,8 +46,6 @@ func _input(event: InputEvent) -> void:
 		current_modifier.reset()
 		
 		attack_cooldown = attack_cooldown_max
-		
-		
 		
 	## Handling modifiers 
 	# Make sure to only use values that are vars at the top so it's easier to iterate.
@@ -80,10 +76,7 @@ func _process(delta):
 	if health_current <= 0:
 		deathmenu.visible = true
 		get_tree().paused = true
-	
 	pass
-
-
 
 
 func take_damage(damage):
@@ -96,7 +89,5 @@ func _on_ow_timer_timeout():
 	$AnimatedSprite2D.play("hewwo")
 	pass 
 
-
 func _on_area_2d_area_entered(area):
-	print("oowww")
 	take_damage(10)
