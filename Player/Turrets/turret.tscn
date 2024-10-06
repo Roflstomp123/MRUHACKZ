@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://6112qnmwh3b"]
+[gd_scene load_steps=7 format=3 uid="uid://6112qnmwh3b"]
 
 [ext_resource type="Script" path="res://Player/Turrets/turret.gd" id="1_qnbnu"]
 [ext_resource type="Texture2D" uid="uid://dmb40tj70o1hf" path="res://Assets/cannon_all_white.png" id="2_g1khy"]
@@ -28,11 +28,19 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxiua"]
+size = Vector2(49, 46)
+
 [node name="Turret" type="StaticBody2D"]
 script = ExtResource("1_qnbnu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -2)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_rdvj0")
 animation = &"shoot"
 frame = 2
 frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sxiua")

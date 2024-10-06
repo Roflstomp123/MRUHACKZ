@@ -19,7 +19,7 @@ func _ready():
 	## build shortcuts menu
 	#TODO could make a set ammount and make them invisible so the text doesn't keep movign.
 	
-	for mod in ModifiersSingleton.modifiers:
+	for mod in ModifiersSingleton.modifier_list:
 		var new_item: = SHORTCUT_INVENTORY_ITEM.instantiate()
 		new_item.modifier = mod
 		shortcuts.add_child(new_item)
@@ -33,10 +33,9 @@ func _placing_turret_pressed(button:int) -> void:
 	for node in use_slots.get_children():
 		if node is ShortcutInventoryItem:
 			new_modifier.add(node.modifier)
-	var temp = ModifiersSingleton.turrets[button -1]
 	#TODO remove
 	print("placing turret was pressed \n\n\n\n\n\n\n\n")
-	ModifiersSingleton.turrets[button -1] = new_modifier
+	ModifiersSingleton.turret_modifiers[button -1] = new_modifier
 	
 	create_turret_popup.visible = false
 	

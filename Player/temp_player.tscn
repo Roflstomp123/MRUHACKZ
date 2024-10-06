@@ -180,3 +180,6 @@ zoom = Vector2(4, 4)
 visible = false
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="TurrentParent" type="Node2D" parent="."]
+top_level = true
