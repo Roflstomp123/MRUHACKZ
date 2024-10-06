@@ -341,10 +341,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="DeathMenu" parent="CanvasLayer" instance=ExtResource("5_wpvdd")]
-offset_left = 1379.79
-offset_top = -304.838
-offset_right = 1379.79
-offset_bottom = -304.838
+visible = false
 
 [node name="owTimer" type="Timer" parent="."]
 
