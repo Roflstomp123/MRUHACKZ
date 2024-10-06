@@ -1,12 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://6112qnmwh3b"]
+[gd_scene load_steps=6 format=3 uid="uid://6112qnmwh3b"]
 
 [ext_resource type="Script" path="res://Player/Turrets/turret.gd" id="1_qnbnu"]
+[ext_resource type="Texture2D" uid="uid://dmb40tj70o1hf" path="res://Assets/cannon_all_white.png" id="2_g1khy"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_whkl3"]
-size = Vector2(20, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8og6e"]
+atlas = ExtResource("2_g1khy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1l47"]
+atlas = ExtResource("2_g1khy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rdvj0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8og6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1l47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8og6e")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 3.0
+}]
 
 [node name="Turret" type="StaticBody2D"]
 script = ExtResource("1_qnbnu")
 
-[node name="temp_sprite" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_whkl3")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rdvj0")
+animation = &"shoot"
+frame = 2
+frame_progress = 1.0

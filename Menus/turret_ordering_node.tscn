@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1q00h0a14dr6"]
+
+[ext_resource type="Script" path="res://Menus/turret_ordering_node.gd" id="1_wrwy7"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_ynhni"]
+
+[sub_resource type="Shortcut" id="Shortcut_32diq"]
+events = [SubResource("InputEventAction_ynhni")]
+
+[node name="TurretOrderingNode" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+disabled = true
+shortcut = SubResource("Shortcut_32diq")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_wrwy7")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
