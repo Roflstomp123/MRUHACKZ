@@ -3625,9 +3625,16 @@ position = Vector2(1009, 111)
 [node name="temp_player" parent="." instance=ExtResource("1_hq4be")]
 position = Vector2(872, 1048)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="temp_player"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="temp_player"]
 visible = false
 shape = SubResource("RectangleShape2D_arefr")
+
+[node name="Camera2D2" type="Camera2D" parent="temp_player"]
+position = Vector2(81, -430)
+zoom = Vector2(1.1, 1.1)
+limit_left = 0
+limit_right = 1970
+position_smoothing_enabled = true
 
 [node name="wall" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_ghn1h")
@@ -3656,3 +3663,6 @@ physics_material_override = SubResource("PhysicsMaterial_ghn1h")
 position = Vector2(961.063, 1102)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_8nlmp")
+
+[node name="Orange Alien" parent="." instance=ExtResource("2_6bin5")]
+position = Vector2(648, 728)

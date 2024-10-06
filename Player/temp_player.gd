@@ -84,7 +84,7 @@ func _process(delta):
 func take_damage(damage):
 	$owTimer.start()
 	$AnimatedSprite2D.play("ow")
-	health_current -= 10
+	health_current -= damage
 	pass
 
 func _on_ow_timer_timeout():
