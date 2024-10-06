@@ -15,7 +15,7 @@ var current_time_to_spawn: float:
 var instruction_index: int = 0 
 var current_instructions:SingleEnemySpawnInstruction
 @onready var player = $"../temp_player" 
-
+@onready var pink = $Bigpink
 
 
 func _ready():
