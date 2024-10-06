@@ -68,19 +68,14 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if health <= 0:
 		queue_free()
 		
-<<<<<<< Updated upstream
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	health <= 0
 	health -= 1
 
-
-func _on_hurt_box_body_entered(body: Node2D) -> void:
-=======
 
 
 func _on_area_2d_body_entered(body: Node):
 	if body.is_in_group("player"):
 		body.take_damage(10)
 		health = 0
->>>>>>> Stashed changes
 	pass # Replace with function body.
