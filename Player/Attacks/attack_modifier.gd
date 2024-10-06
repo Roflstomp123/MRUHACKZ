@@ -11,9 +11,9 @@ NOTE: Also if we change this, we have to change how apply/remove modifier works 
 """
 
 
-@export var damage:int = 0
+@export var damage:float = 0
 @export var size:float = 0
-@export var speed:int = 0
+@export var speed:float = 0
 @export var cooldown:float = 0 #time in s to add
 
 ## things that will get added when combining two, etc.
