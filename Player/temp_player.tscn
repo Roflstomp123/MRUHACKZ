@@ -1,51 +1,51 @@
-[gd_scene load_steps=46 format=3 uid="uid://d2y3tr3j5exhm"]
+[gd_scene load_steps=43 format=3 uid="uid://d2y3tr3j5exhm"]
 
 [ext_resource type="Script" path="res://Player/temp_player.gd" id="1_rdv07"]
 [ext_resource type="Texture2D" uid="uid://coe8bvsg7p2nq" path="res://Player/hackzplayer.png" id="2_skexy"]
 [ext_resource type="Texture2D" uid="uid://vm71v14whfy6" path="res://Assets/hackzplayer.png" id="2_tsupp"]
 [ext_resource type="PackedScene" uid="uid://bhii2lrlym0ad" path="res://Menus/make_turret_menu.tscn" id="3_e0cnx"]
 [ext_resource type="AudioStream" uid="uid://bw0gg71e430qq" path="res://Assets/pew-pew-81279.mp3" id="5_ut0v5"]
-[ext_resource type="PackedScene" uid="uid://cq87s5ojjn0f" path="res://Levels/death_menu.tscn" id="5_wpvdd"]
+[ext_resource type="PackedScene" uid="uid://bhphqnlr5pagf" path="res://Levels/death_menu.tscn" id="5_wpvdd"]
 [ext_resource type="AudioStream" uid="uid://kt2068cme725" path="res://Assets/bullet sound.mp3" id="6_vmvwr"]
 [ext_resource type="AudioStream" uid="uid://bkcvpfcrr288n" path="res://Assets/hurt.mp3" id="7_1m0kn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3oigx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb5on"]
 atlas = ExtResource("2_tsupp")
 region = Rect2(352, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mr7t0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_papdk"]
 atlas = ExtResource("2_tsupp")
 region = Rect2(368, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_acj7b"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3kep"]
 atlas = ExtResource("2_tsupp")
 region = Rect2(384, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r4ij4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kegv"]
 atlas = ExtResource("2_tsupp")
 region = Rect2(400, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k41tl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uggh4"]
 atlas = ExtResource("2_tsupp")
 region = Rect2(416, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aylal"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc7ca"]
 atlas = ExtResource("2_tsupp")
 region = Rect2(432, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pmyu6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpad2"]
 atlas = ExtResource("2_tsupp")
 region = Rect2(448, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1lhuf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ut2if"]
 atlas = ExtResource("2_tsupp")
 region = Rect2(464, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jlaia"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcorf"]
 atlas = ExtResource("2_tsupp")
 region = Rect2(480, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ryic"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntmd3"]
 atlas = ExtResource("2_tsupp")
 region = Rect2(496, 0, 16, 16)
 
@@ -133,38 +133,38 @@ region = Rect2(320, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3oigx")
+"texture": SubResource("AtlasTexture_kb5on")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mr7t0")
+"texture": SubResource("AtlasTexture_papdk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_acj7b")
+"texture": SubResource("AtlasTexture_o3kep")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r4ij4")
+"texture": SubResource("AtlasTexture_3kegv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k41tl")
+"texture": SubResource("AtlasTexture_uggh4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aylal")
+"texture": SubResource("AtlasTexture_gc7ca")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pmyu6")
+"texture": SubResource("AtlasTexture_hpad2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1lhuf")
+"texture": SubResource("AtlasTexture_ut2if")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jlaia")
+"texture": SubResource("AtlasTexture_vcorf")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2ryic")
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_ntmd3")
 }],
-"loop": true,
+"loop": false,
 "name": &">o<",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -246,80 +246,6 @@ size = Vector2(72.4375, 73.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x53fn"]
 size = Vector2(150, 249)
 
-[sub_resource type="Animation" id="Animation_l7syp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&">o<"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:speed_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-
-[sub_resource type="Animation" id="Animation_rykbp"]
-resource_name = "byebye"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"after_death"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&">o<"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:speed_scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.0, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lopyd"]
-_data = {
-"RESET": SubResource("Animation_l7syp"),
-"byebye": SubResource("Animation_rykbp")
-}
-
 [node name="temp_player" type="CharacterBody2D" node_paths=PackedStringArray("deathmenu") groups=["player"]]
 script = ExtResource("1_rdv07")
 deathmenu = NodePath("CanvasLayer/DeathMenu")
@@ -327,7 +253,7 @@ deathmenu = NodePath("CanvasLayer/DeathMenu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_a7xye")
-animation = &">o<"
+animation = &"hewwo"
 autoplay = "hewwo"
 
 [node name="ProjectlesParent" type="Node2D" parent="."]
@@ -341,10 +267,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="DeathMenu" parent="CanvasLayer" instance=ExtResource("5_wpvdd")]
-offset_left = 1379.79
-offset_top = -304.838
-offset_right = 1379.79
-offset_bottom = -304.838
+visible = false
 
 [node name="owTimer" type="Timer" parent="."]
 
@@ -389,11 +312,6 @@ limit_left = -40
 limit_right = 1980
 position_smoothing_enabled = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_lopyd")
-}
-
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -39.0
 offset_top = 38.0
@@ -408,6 +326,25 @@ offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.5, 1, 0.55, 1)
 
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -39.0
+offset_top = 47.0
+offset_right = 1.0
+offset_bottom = 87.0
+scale = Vector2(2, -0.15)
+color = Color(0.016181, 1.41986e-05, 0.0431792, 1)
+
+[node name="coolBar" type="ColorRect" parent="ColorRect2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.815686, 0.694118, 0.0431373, 1)
+
+[node name="ohnoTimer" type="Timer" parent="."]
+wait_time = 0.9
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="owTimer" to="." method="_on_ow_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="TurretCatchingArea" to="." method="_on_turret_catching_area_body_entered"]
+[connection signal="timeout" from="ohnoTimer" to="." method="_on_ohno_timer_timeout"]

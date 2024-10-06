@@ -8,6 +8,7 @@ var player_attack:PackedScene = preload("res://Player/Attacks/PlayerAttack.tscn"
 const TURRET = preload("res://Player/Turrets/turret.tscn")
 @onready var turrent_parent: Node2D = $TurrentParent
 @onready var health_bar = $ColorRect/healthBar
+@onready var cool_bar = $ColorRect2/coolBar
 
 const TURRET_POSITION_OFFSET = 100
 @export var deathmenu: Control
@@ -122,6 +123,7 @@ func _input(event: InputEvent) -> void:
 func _process(delta):
 	
 	health_bar.scale.x = health_current/health_max
+	cool_bar.scale.x = clamp(attack_cooldown/attack_cooldown_max, 0, 1) 
 	
 	## Movement 
 	move_direction.x = Input.get_axis("Move left", "Move right")
@@ -146,7 +148,10 @@ func take_damage(damage):
 	random_strength = 15.0
 	apply_shake()
 	if health_current <= 0:
-		$AnimationPlayer.play("byebye")
+		$Area2D.queue_free()
+		$AnimatedSprite2D.play(">o<")
+		$ohnoTimer.start()
+		$owTimer.stop()
 	else:
 		$owTimer.start()
 		$AnimatedSprite2D.play("ow")
@@ -164,10 +169,10 @@ func _on_area_2d_area_entered(area):
 func _on_turret_catching_area_body_entered(body: Node2D) -> void:
 	if body is Turret:
 		body.queue_free()
-func after_death():
-	deathmenu.visible = true
-	set_process_mode(4)
-	print("dead")
+		
+
+func _on_ohno_timer_timeout():
+	
 	pass 
 
 func apply_shake():
@@ -175,3 +180,11 @@ func apply_shake():
 
 func random_offset():
 	return Vector2(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength))
+
+
+
+func _on_animated_sprite_2d_animation_finished():
+	deathmenu.visible = true
+	set_process_mode(4)
+	print("dead")
+	pass # Replace with function body.

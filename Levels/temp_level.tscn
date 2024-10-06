@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://d2y3tr3j5exhm" path="res://Player/temp_player.tscn" id="1_hq4be"]
 [ext_resource type="PackedScene" uid="uid://3pjtbtv6mgdk" path="res://Enemy/EnemySpawner/enemy_spawner.tscn" id="1_ip621"]
-[ext_resource type="PackedScene" uid="uid://8w20wn4aughi" path="res://Levels/background.tscn" id="1_lxviy"]
+[ext_resource type="PackedScene" uid="uid://dsqqponge0fu2" path="res://Levels/background.tscn" id="1_lxviy"]
 [ext_resource type="PackedScene" uid="uid://7qoxqwxaounk" path="res://Menus/won_ui.tscn" id="2_3xgjj"]
-[ext_resource type="Resource" uid="uid://dbehcikcot87d" path="res://Enemy/EnemySpawner/level_1.tres" id="3_bc3tg"]
+[ext_resource type="Resource" uid="uid://dt86sru3fjaxi" path="res://Enemy/EnemySpawner/level_1.tres" id="3_bc3tg"]
 [ext_resource type="Script" path="res://Enemy/EnemySpawner/enemy_spawner_instructions.gd" id="3_pa6ky"]
 [ext_resource type="Resource" uid="uid://on72gcqadsuh" path="res://Enemy/EnemySpawner/level_2.tres" id="5_hl154"]
-[ext_resource type="AudioStream" uid="uid://c6yl52otepoe5" path="res://Assets/026491_pixel-song-8-72675.mp3" id="8_mjc66"]
+[ext_resource type="AudioStream" uid="uid://dwhuxeixxg6d1" path="res://Assets/battlemusic.mp3" id="7_mp6pu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arefr"]
 size = Vector2(64, 64)
@@ -24,18 +24,14 @@ layer = -20
 follow_viewport_enabled = true
 
 [node name="Background" parent="CanvasLayer" instance=ExtResource("1_lxviy")]
-offset_left = -13.0
-offset_top = 3.0
-offset_right = -13.0
-offset_bottom = 3.0
-
-[node name="WonUI" parent="CanvasLayer" instance=ExtResource("2_3xgjj")]
-offset_top = 140.0
-offset_bottom = 140.0
+offset_left = -305.0
+offset_top = -254.0
+offset_right = -305.0
+offset_bottom = -254.0
 
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("won_ui") instance=ExtResource("1_ip621")]
 level_list = Array[ExtResource("3_pa6ky")]([ExtResource("3_bc3tg"), ExtResource("5_hl154")])
-won_ui = NodePath("../CanvasLayer/WonUI")
+won_ui = NodePath("../CanvasLayer2/WonUI")
 
 [node name="temp_player" parent="." instance=ExtResource("1_hq4be")]
 process_mode = 3
@@ -68,6 +64,12 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_8nlmp")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_mjc66")
+stream = ExtResource("7_mp6pu")
 volume_db = 0.1
 autoplay = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="WonUI" parent="CanvasLayer2" instance=ExtResource("2_3xgjj")]
+offset_top = -4.0
+offset_bottom = -4.0
