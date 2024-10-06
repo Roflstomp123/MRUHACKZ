@@ -3,6 +3,7 @@ class_name WonUI
 @onready var congrats: Label = $VBoxContainer/Label
 @onready var continue_button:Button = $VBoxContainer/HBoxContainer/StartButton
 @onready var quit_button: Button = $VBoxContainer/HBoxContainer/QuitButton
+@onready var label_2: Label = $VBoxContainer/ConfirmContainer/VBoxContainer/Label2
 
 var round_name:String:
 	set(val):
@@ -19,12 +20,20 @@ var round_name:String:
 			congrats.remove_theme_font_size_override("font_size")#.font_size = 128
 			congrats.text = "Congratulations \n you beat " + round_name
 			ModifiersSingleton.max_turret += int(round_name)
+			label_2.text = unlock_per_level[int(round_name)]
 			quit_button.visible = true
 
 var unlock_per_level:Array[String] = [
 	"You ulocked a new shortcut! \n Use Alt + D \n To make your lasers follow enemies. \n You unlocked 1 more turret.",
 	"You ulocked a new shortcut! \n Use Ctr + Z \n To heal (Cooldown in the bottom left). \n You unlocked 2 more turret."
 ]
+
+var unlock_per_level_dictionary:Dictionary = {
+	"1":  ["You ulocked a new shortcut! \n Use Alt + D \n To make your lasers follow enemies. \n You unlocked 1 more turret.", "res://Player/Modifiers/tracking.tres"] ,
+	"2":  ["You ulocked a new shortcut! \n Use Ctr + Z \n To heal (Cooldown in the bottom left). \n You unlocked 2 more turret.", "res://Player/Modifiers/tracking.tres"] # should have ctr z here.
+}
+
+## Bad data structures, should keep a 
 	
 func _ready() -> void:
 	#runs the setter for the tutorial.

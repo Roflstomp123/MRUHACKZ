@@ -19,21 +19,15 @@ size = Vector2(34.9999, 1889.88)
 
 [node name="temp_level" type="Node2D"]
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="DeathMenu" parent="CanvasLayer2" instance=ExtResource("1_xbu0e")]
-visible = false
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -20
 follow_viewport_enabled = true
 
 [node name="Background" parent="CanvasLayer" instance=ExtResource("1_lxviy")]
-offset_left = -550.0
-offset_top = -450.0
-offset_right = -550.0
-offset_bottom = -450.0
-scale = Vector2(1.5475, 1.65777)
+offset_left = -13.0
+offset_top = 3.0
+offset_right = -13.0
+offset_bottom = 3.0
 
 [node name="WonUI" parent="CanvasLayer" instance=ExtResource("2_3xgjj")]
 offset_top = 140.0
@@ -43,10 +37,9 @@ offset_bottom = 140.0
 level_list = Array[ExtResource("3_pa6ky")]([ExtResource("3_bc3tg"), ExtResource("5_hl154")])
 won_ui = NodePath("../CanvasLayer/WonUI")
 
-[node name="temp_player" parent="." node_paths=PackedStringArray("deathmenu") instance=ExtResource("1_hq4be")]
+[node name="temp_player" parent="." instance=ExtResource("1_hq4be")]
 process_mode = 3
 position = Vector2(872, 1048)
-deathmenu = NodePath("../CanvasLayer2/DeathMenu")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="temp_player"]
 visible = false
@@ -75,6 +68,6 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_8nlmp")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_mu741")
+stream = ExtResource("8_mjc66")
 volume_db = 0.1
 autoplay = true

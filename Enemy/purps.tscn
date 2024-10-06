@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://yxeju5uyhvx2"]
+[gd_scene load_steps=18 format=3 uid="uid://cohx7hwmq3kpx"]
 
 [ext_resource type="Texture2D" uid="uid://ei4rke8rdy3r" path="res://Assets/bigger-enemy-exploding.png" id="1_3wx1h"]
 [ext_resource type="Script" path="res://Enemy/purps.gd" id="1_oyux0"]
