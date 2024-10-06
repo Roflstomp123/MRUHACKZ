@@ -100,8 +100,8 @@ size = Vector2(50, 49)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_myn7n"]
 size = Vector2(30, 30)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d1kw6"]
-radius = 36.0139
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01vqv"]
+size = Vector2(45, 63)
 
 [node name="Orange Alien" type="CharacterBody2D"]
 script = ExtResource("1_mms7r")
@@ -127,8 +127,8 @@ collision_layer = 16384
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt box"]
-position = Vector2(2, -51)
-shape = SubResource("CircleShape2D_d1kw6")
+position = Vector2(2.5, -39.5)
+shape = SubResource("RectangleShape2D_01vqv")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="hurt box" to="." method="_on_hurt_box_area_entered"]

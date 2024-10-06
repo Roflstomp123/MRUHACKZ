@@ -73,7 +73,6 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 	health -= 1
 
 
-
 func _on_area_2d_body_entered(body: Node):
 	if body.is_in_group("player"):
 		body.take_damage(10)
