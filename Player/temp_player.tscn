@@ -188,3 +188,5 @@ size_flags_vertical = 0
 shape = SubResource("CircleShape2D_cqhom")
 
 [connection signal="timeout" from="owTimer" to="." method="_on_ow_timer_timeout"]
+[node name="TurrentParent" type="Node2D" parent="."]
+top_level = true

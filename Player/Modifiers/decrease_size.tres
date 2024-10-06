@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AttackModifier" load_steps=2 format=3 uid="uid://2ojedfb6fhot"]
+
+[ext_resource type="Script" path="res://Player/Attacks/attack_modifier.gd" id="1_8anpv"]
+
+[resource]
+script = ExtResource("1_8anpv")
+damage = 0
+size = -0.5
+speed = 0
+cooldown = 0.0
+input_name = "decrease_size"
