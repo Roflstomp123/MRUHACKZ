@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://wuinle5djp7i"]
+
+[ext_resource type="Texture2D" uid="uid://cdoc2k8e726tf" path="res://Assets/biggest-enemy-idle.png" id="1_mdn8t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sixk3"]
+atlas = ExtResource("1_mdn8t")
+region = Rect2(5, 7, 62, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0y2d"]
+atlas = ExtResource("1_mdn8t")
+region = Rect2(67, 7, 62, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78cyh"]
+atlas = ExtResource("1_mdn8t")
+region = Rect2(129, 7, 62, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5wq6"]
+atlas = ExtResource("1_mdn8t")
+region = Rect2(191, 7, 62, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akwxi"]
+atlas = ExtResource("1_mdn8t")
+region = Rect2(129, 7, 62, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgyvo"]
+atlas = ExtResource("1_mdn8t")
+region = Rect2(67, 7, 62, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgv1c"]
+atlas = ExtResource("1_mdn8t")
+region = Rect2(5, 7, 62, 57)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wd0yc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sixk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0y2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78cyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5wq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akwxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgyvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgv1c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g73h7"]
+radius = 18.0278
+
+[node name="PinkAlien" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_wd0yc")
+frame_progress = 0.904712
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_g73h7")
