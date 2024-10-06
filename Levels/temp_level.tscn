@@ -1,41 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwh612pdj51oo"]
+[gd_scene load_steps=10 format=3 uid="uid://dwh612pdj51oo"]
 
 [ext_resource type="PackedScene" uid="uid://d2y3tr3j5exhm" path="res://Player/temp_player.tscn" id="1_hq4be"]
 [ext_resource type="PackedScene" uid="uid://3pjtbtv6mgdk" path="res://Enemy/EnemySpawner/enemy_spawner.tscn" id="1_ip621"]
 [ext_resource type="PackedScene" uid="uid://dsqqponge0fu2" path="res://Levels/background.tscn" id="1_lxviy"]
-[ext_resource type="Script" path="res://Enemy/EnemySpawner/single_enemy_spawn_instruction.gd" id="2_4jaty"]
-[ext_resource type="PackedScene" uid="uid://1q40oymcgcqt" path="res://Enemy/alien.tscn" id="2_6bin5"]
-[ext_resource type="PackedScene" uid="uid://pccm7ghaxms2" path="res://Enemy/Pink alien.tscn" id="4_34cgj"]
-[ext_resource type="PackedScene" uid="uid://yxeju5uyhvx2" path="res://Enemy/purps.tscn" id="5_ydgeb"]
+[ext_resource type="Resource" uid="uid://dawmsbskpx664" path="res://Enemy/EnemySpawner/level_1.tres" id="4_e1drs"]
 [ext_resource type="AudioStream" uid="uid://c6yl52otepoe5" path="res://Assets/026491_pixel-song-8-72675.mp3" id="8_mjc66"]
-[ext_resource type="PackedScene" uid="uid://bhphqnlr5pagf" path="res://Levels/death_menu.tscn" id="9_88bg6"]
-
-[sub_resource type="Resource" id="Resource_dka08"]
-script = ExtResource("2_4jaty")
-position = Vector2(400, 100)
-enemy_scene = ExtResource("2_6bin5")
-time_offset = 2.0
-state = -1
-
-[sub_resource type="Resource" id="Resource_y3af4"]
-script = ExtResource("2_4jaty")
-position = Vector2(600, 200)
-enemy_scene = ExtResource("4_34cgj")
-time_offset = 5.0
-state = -1
-
-[sub_resource type="Resource" id="Resource_wun0i"]
-script = ExtResource("2_4jaty")
-position = Vector2(0, 0)
-time_offset = 0.0
-state = -1
-
-[sub_resource type="Resource" id="Resource_wcf3v"]
-script = ExtResource("2_4jaty")
-position = Vector2(70, 0)
-enemy_scene = ExtResource("2_6bin5")
-time_offset = 2.0
-state = -1
+[ext_resource type="PackedScene" uid="uid://cq87s5ojjn0f" path="res://Levels/death_menu.tscn" id="9_88bg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arefr"]
 size = Vector2(64, 64)
@@ -64,15 +34,7 @@ offset_bottom = -2.0
 scale = Vector2(1.17032, 1.07793)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("1_ip621")]
-enemy_spawner_instructions = Array[ExtResource("2_4jaty")]([SubResource("Resource_dka08"), SubResource("Resource_y3af4"), SubResource("Resource_wun0i"), SubResource("Resource_wcf3v")])
-
-[node name="Orange Alien" parent="EnemySpawner" instance=ExtResource("2_6bin5")]
-position = Vector2(559.625, -156.294)
-
-[node name="Bigpink" parent="EnemySpawner" instance=ExtResource("4_34cgj")]
-position = Vector2(856, -144)
-
-[node name="Purps" parent="EnemySpawner" instance=ExtResource("5_ydgeb")]
+enemy_spawner_instructions = ExtResource("4_e1drs")
 
 [node name="temp_player" parent="." node_paths=PackedStringArray("deathmenu") instance=ExtResource("1_hq4be")]
 position = Vector2(872, 1048)
