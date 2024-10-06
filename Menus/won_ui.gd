@@ -8,21 +8,22 @@ class_name WonUI
 var round_name:String:
 	set(val):
 		round_name = val
-		if int(round_name) <= 0:
+		if int(round_name) < 0:
 			congrats.text = "Don't let the aliens get \n to your planet! \n Use Ctr + + to make your shot bigger, \n or Ctr + - to make them smaller (and faster)." \
 							+ "\n Use tab to create turrets to help you out. \n 1-9 to place them, del to remove them."
 			congrats.add_theme_font_size_override("font_size", 60)
 			continue_button.text = "START"
 			quit_button.visible = false
+			label_2.text = ""
 
 		else:
 			continue_button.text = "CONTINUE"
-			congrats.remove_theme_font_size_override("font_size")#.font_size = 128
+			congrats.add_theme_font_size_override("font_size", 128)#.font_size = 128
 			congrats.text = "Congratulations \n you beat " + round_name
 			ModifiersSingleton.max_turrets
 			#ModifiersSingleton.max_turret += int(round_name)
-			label_2.text = unlock_per_level_dictionary[round_name][0]
-			ModifiersSingleton.modifier_list.append(unlock_per_level_dictionary[int(round_name)][1])
+			label_2.text = unlock_per_level_dictionary.get(round_name).get("0")
+			ModifiersSingleton.modifier_list.append(unlock_per_level_dictionary.get(round_name).get("1"))
 			quit_button.visible = true
 
 var unlock_per_level:Array[String] = [
@@ -31,8 +32,10 @@ var unlock_per_level:Array[String] = [
 ]
 
 var unlock_per_level_dictionary:Dictionary = {
-	"1":  ["You ulocked a new shortcut! \n Use Alt + D \n To make your lasers follow enemies. \n You unlocked 1 more turret.", "res://Player/Modifiers/tracking.tres"] ,
-	"2":  ["You ulocked a new shortcut! \n Use Ctr + Z \n To heal (Cooldown in the bottom left). \n You unlocked 2 more turret.", "res://Player/Modifiers/tracking.tres"] # should have ctr z here.
+	"0":  {"0" : "You ulocked a new shortcut! \n Use Alt + D \n To make your lasers follow enemies. \n You unlocked 1 more turret.",
+		   "1": "res://Player/Modifiers/tracking.tres"},
+	"1":  {"0" : "You ulocked a new shortcut! \n Use Ctr + Z \n To heal (Cooldown in the bottom left). \n You unlocked 2 more turret.", 
+		   "1" : "res://Player/Modifiers/tracking.tres"} # should have ctr z here.
 }
 
 ## Bad data structures, should keep a 
