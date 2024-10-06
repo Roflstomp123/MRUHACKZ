@@ -45,7 +45,8 @@ func _process(delta: float) -> void:
 func next_round():
 	if level_index + 1 < level_list.size():
 		level_index += 1
-		instruction_index
+		instruction_index = 0
+		_done_spawning = false
 		pass
 	pass
 	
