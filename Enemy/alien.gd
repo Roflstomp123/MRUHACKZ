@@ -67,14 +67,3 @@ func kill():
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if health <= 0:
 		queue_free()
-		
-func _on_hurt_box_area_entered(area: Area2D) -> void:
-	health <= 0
-	health -= 1
-
-
-func _on_area_2d_body_entered(body: Node):
-	if body.is_in_group("player"):
-		body.take_damage(10)
-		health = 0
-	pass # Replace with function body.

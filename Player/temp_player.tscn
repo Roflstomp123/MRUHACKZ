@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d2y3tr3j5exhm"]
+[gd_scene load_steps=28 format=3 uid="uid://d2y3tr3j5exhm"]
 
 [ext_resource type="Script" path="res://Player/temp_player.gd" id="1_rdv07"]
 [ext_resource type="Texture2D" uid="uid://coe8bvsg7p2nq" path="res://Player/hackzplayer.png" id="2_skexy"]
@@ -161,6 +161,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_cqhom"]
 radius = 24.0208
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_va4gv"]
+size = Vector2(72.4375, 73.75)
+
 [node name="temp_player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_rdv07")
 
@@ -187,4 +190,13 @@ size_flags_vertical = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_cqhom")
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4096
+collision_mask = 1024
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, -9)
+shape = SubResource("RectangleShape2D_va4gv")
+
 [connection signal="timeout" from="owTimer" to="." method="_on_ow_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

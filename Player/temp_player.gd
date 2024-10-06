@@ -83,6 +83,9 @@ func _process(delta):
 	
 	pass
 
+
+
+
 func take_damage(damage):
 	$owTimer.start()
 	$AnimatedSprite2D.play("ow")
@@ -92,3 +95,8 @@ func take_damage(damage):
 func _on_ow_timer_timeout():
 	$AnimatedSprite2D.play("hewwo")
 	pass 
+
+
+func _on_area_2d_area_entered(area):
+	print("oowww")
+	take_damage(10)
