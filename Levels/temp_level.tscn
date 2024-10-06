@@ -1,19 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://dwh612pdj51oo"]
+[gd_scene load_steps=15 format=3 uid="uid://dwh612pdj51oo"]
 
 [ext_resource type="PackedScene" uid="uid://d2y3tr3j5exhm" path="res://Player/temp_player.tscn" id="1_hq4be"]
 [ext_resource type="PackedScene" uid="uid://3pjtbtv6mgdk" path="res://Enemy/EnemySpawner/enemy_spawner.tscn" id="1_ip621"]
-[ext_resource type="PackedScene" uid="uid://dsqqponge0fu2" path="res://Levels/background.tscn" id="1_lxviy"]
+[ext_resource type="PackedScene" uid="uid://8w20wn4aughi" path="res://Levels/background.tscn" id="1_lxviy"]
 [ext_resource type="Script" path="res://Enemy/EnemySpawner/single_enemy_spawn_instruction.gd" id="2_4jaty"]
 [ext_resource type="PackedScene" uid="uid://1q40oymcgcqt" path="res://Enemy/alien.tscn" id="2_6bin5"]
-[ext_resource type="PackedScene" uid="uid://pccm7ghaxms2" path="res://Enemy/Pink alien.tscn" id="4_34cgj"]
-[ext_resource type="PackedScene" uid="uid://yxeju5uyhvx2" path="res://Enemy/purps.tscn" id="5_ydgeb"]
+[ext_resource type="PackedScene" uid="uid://dkdmeb6kjd1a6" path="res://Enemy/Pink alien.tscn" id="4_34cgj"]
 [ext_resource type="AudioStream" uid="uid://c6yl52otepoe5" path="res://Assets/026491_pixel-song-8-72675.mp3" id="8_mjc66"]
 
 [sub_resource type="Resource" id="Resource_dka08"]
 script = ExtResource("2_4jaty")
 position = Vector2(400, 100)
 enemy_scene = ExtResource("2_6bin5")
-time_offset = 2.0
+time_offset = 500.0
 state = -1
 
 [sub_resource type="Resource" id="Resource_y3af4"]
@@ -59,13 +58,8 @@ offset_bottom = 3.0
 [node name="EnemySpawner" parent="." instance=ExtResource("1_ip621")]
 enemy_spawner_instructions = Array[ExtResource("2_4jaty")]([SubResource("Resource_dka08"), SubResource("Resource_y3af4"), SubResource("Resource_wun0i"), SubResource("Resource_wcf3v")])
 
-[node name="Orange Alien" parent="EnemySpawner" instance=ExtResource("2_6bin5")]
-position = Vector2(559.625, -156.294)
-
 [node name="Bigpink" parent="EnemySpawner" instance=ExtResource("4_34cgj")]
 position = Vector2(856, -144)
-
-[node name="Purps" parent="EnemySpawner" instance=ExtResource("5_ydgeb")]
 
 [node name="temp_player" parent="." instance=ExtResource("1_hq4be")]
 position = Vector2(872, 1048)

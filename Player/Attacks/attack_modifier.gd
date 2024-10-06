@@ -15,6 +15,7 @@ NOTE: Also if we change this, we have to change how apply/remove modifier works 
 @export var size:float = 0
 @export var speed:float = 0
 @export var cooldown:float = 0 #time in s to add
+@export var tracking:bool = false
 
 ## things that will get added when combining two, etc.
 var values_to_add:Array[String] = [
@@ -46,6 +47,7 @@ func reset():
 	size = 0
 	speed = 0
 	cooldown = 0
+	tracking = true
 	pass
 
 func add(modifier:AttackModifier):
@@ -53,6 +55,8 @@ func add(modifier:AttackModifier):
 	"""
 	Combines the modifier into this one.
 	"""
+	
+	tracking = tracking or modifier.tracking
 	
 	#var props:Array = get_property_list()
 	for arg in get_property_list():

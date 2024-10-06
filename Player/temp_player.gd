@@ -10,6 +10,7 @@ const TURRET = preload("res://Player/Turrets/turret.tscn")
 
 const TURRET_POSITION_OFFSET = 100
 @export var deathmenu: Control
+@onready var turret_catching_area: Area2D = $TurretCatchingArea
 
 # Not sure how to organize the modifiers.
 # Just having them in a dictionary would be good, but that also makes customizability harder.
@@ -36,6 +37,21 @@ var speed_increase_modifier:float = 100 #pixels/second ??
 var move_direction:Vector2
 var move_speed:float = 400
 
+
+func _toggle_turret_monitoring():
+	turret_catching_area.monitoring = true
+	turret_catching_area.monitorable = true
+	# This sucks, heheh
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	turret_catching_area.monitoring = false
+	turret_catching_area.monitorable = false
 
 func _input(event: InputEvent) -> void:
 	
@@ -74,11 +90,15 @@ func _input(event: InputEvent) -> void:
 		#also this shouldn't be here, it should be done after missions.
 		make_turret_menu.visible = not make_turret_menu.visible
 		
+	
+	## Turret moving
+	if event.is_action_pressed("remove_turret"):
+		_toggle_turret_monitoring()
 		
 	
 	## Turret spawning
 	for input_str in ModifiersSingleton.turret_inputs:
-		if event.is_action_pressed(input_str):
+		if ModifiersSingleton.turret_modifiers[int(input_str) -1].input_name != "empty_modifier" and event.is_action_pressed(input_str):
 			if turrent_parent.get_children().size() < ModifiersSingleton.max_turrets:
 				var new_turret:Turret = TURRET.instantiate()
 				turrent_parent.add_child(new_turret)
@@ -123,3 +143,8 @@ func _on_ow_timer_timeout():
 
 func _on_area_2d_area_entered(area):
 	take_damage(10)
+
+
+func _on_turret_catching_area_body_entered(body: Node2D) -> void:
+	if body is Turret:
+		body.queue_free()

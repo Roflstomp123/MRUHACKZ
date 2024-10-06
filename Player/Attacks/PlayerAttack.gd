@@ -23,10 +23,58 @@ class_name PlayerAttack
 
 @onready var collision_shape_2d: CircleShape2D = $CollisionShape2D.shape
 
+var tracking:bool = false
+var target:Area2D
+
+
+
 
 func _process(delta: float) -> void:
-	#TODO add acceleration??
-	position.y -= delta * speed
+	if tracking:
+		#var temp = (position.x - possible_targets[closest_index].position.x)
+		var direction:Vector2 = Vector2(1, -1).normalized()
+		if is_instance_valid(target):
+			if position.x > target.global_position.x:
+				direction.x *= -1
+						
+			if abs(position.x - target.global_position.x) < 5:
+				position.y -= delta * speed
+			else:
+				position += direction * delta * speed
+			#region bad
+		## Should make a targetting function so I don't do this every frame
+		# bad >:(
+		## Targetting
+		#var closest_distance = 2000
+		#var closest_index = -1
+		#if possible_targets.size() > 0:
+		#	for target in range(possible_targets.size()):
+		#		#death checking
+		#		if possible_targets[target] != null:
+		#			if position.distance_to(possible_targets[target].position) < closest_distance:
+		#				## I like indents :D
+		#				closest_index = target
+		#				pass
+		#			pass
+		#	
+		#	if possible_targets[closest_index] != null:
+		#		var temp = (position.x - possible_targets[closest_index].position.x)
+		#		
+		#		var direction:Vector2 = Vector2(1, -1).normalized()
+		#		if position.x > possible_targets[closest_index].position.x:
+		#			direction.x *= -1
+		#		position += direction * delta * speed
+		#	else:
+		#		position.y -= delta * speed
+		#else:
+		#	position.y -= delta * speed
+		#pass
+		#endregion
+		else:
+			position.y -= delta * speed
+	else:
+		#TODO add acceleration??
+		position.y -= delta * speed
 	
 func _ready():
 	#runs setter.
@@ -38,7 +86,17 @@ func apply_modifier(modifier:AttackModifier, mult:int = 1): #mult just for remov
 	size += modifier.size * mult
 	speed += modifier.speed * mult
 	cooldown += modifier.cooldown
+	
+	tracking = tracking or modifier.tracking
 	pass
 
+## This is never used
 func remove_modifier(modifier:AttackModifier):
 	apply_modifier(modifier, -1)
+	tracking = false
+
+
+func _on_tracking_detector_area_entered(area: Area2D) -> void:
+	if target == null:
+		target = area
+	pass # Replace with function body.

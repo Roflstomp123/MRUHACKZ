@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cspfwvj72b3tp"]
+[gd_scene load_steps=7 format=3 uid="uid://cspfwvj72b3tp"]
 
 [ext_resource type="Script" path="res://Player/Attacks/PlayerAttack.gd" id="1_2x51w"]
 
@@ -15,6 +15,9 @@ gradient = SubResource("Gradient_c6j81")
 width = 24
 height = 24
 
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_0phh5"]
+points = PackedVector2Array(500, -700, 0, 0, -500, -700)
+
 [node name="Projectile" type="Area2D"]
 collision_layer = 256
 collision_mask = 16384
@@ -28,3 +31,12 @@ sprite_frames = SubResource("SpriteFrames_skgir")
 
 [node name="temp_sprite" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_tcwkn")
+
+[node name="TrackingDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 17408
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrackingDetector"]
+shape = SubResource("ConvexPolygonShape2D_0phh5")
+
+[connection signal="area_entered" from="TrackingDetector" to="." method="_on_tracking_detector_area_entered"]

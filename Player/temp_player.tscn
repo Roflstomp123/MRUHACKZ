@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d2y3tr3j5exhm"]
+[gd_scene load_steps=32 format=3 uid="uid://d2y3tr3j5exhm"]
 
 [ext_resource type="Script" path="res://Player/temp_player.gd" id="1_rdv07"]
 [ext_resource type="Texture2D" uid="uid://coe8bvsg7p2nq" path="res://Player/hackzplayer.png" id="2_skexy"]
@@ -167,6 +167,9 @@ radius = 24.0208
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_va4gv"]
 size = Vector2(72.4375, 73.75)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x53fn"]
+size = Vector2(150, 249)
+
 [node name="temp_player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_rdv07")
 
@@ -215,5 +218,16 @@ stream = ExtResource("7_hsl5p")
 [node name="TurrentParent" type="Node2D" parent="."]
 top_level = true
 
+[node name="TurretCatchingArea" type="Area2D" parent="."]
+collision_layer = 2048
+collision_mask = 32768
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretCatchingArea"]
+position = Vector2(1, -161.5)
+shape = SubResource("RectangleShape2D_x53fn")
+
 [connection signal="timeout" from="owTimer" to="." method="_on_ow_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="TurretCatchingArea" to="." method="_on_turret_catching_area_body_entered"]
