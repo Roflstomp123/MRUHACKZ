@@ -22,6 +22,13 @@ enum {
 	ATTACK,
 }
 
+func _ready():
+	var vol = randf_range(0.5, 2)
+	var pitch = randf_range(0.5, 1)
+	$AudioStreamPlayer2D.volume_db = vol
+	$AudioStreamPlayer2D.pitch_scale = pitch
+	$AudioStreamPlayer2D.play()
+	pass
 
 func _physics_process(delta: float) -> void:
 	velocity.y = SPEED

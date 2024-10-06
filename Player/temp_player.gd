@@ -39,7 +39,15 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Finish attack") and attack_cooldown < 0:
 		var new_projectile:PlayerAttack = player_attack.instantiate()
 		projectles_parent.add_child(new_projectile)
-		$AudioStreamPlayer2D.play()
+		var pew_chance = randf()
+		if pew_chance < 0.01:
+			$AudioStreamPlayer2D.play()
+		else:
+			var vol = randf_range(0.5, 2)
+			var pitch = randf_range(0.5, 1)
+			$AudioStreamPlayer2D2.volume_db = vol
+			$AudioStreamPlayer2D2.pitch_scale = pitch
+			$AudioStreamPlayer2D2.play()
 		#Done since projectiles_parent is a canvas item.
 		new_projectile.position = position
 		
