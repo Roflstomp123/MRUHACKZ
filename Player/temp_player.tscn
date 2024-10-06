@@ -212,4 +212,6 @@ pitch_scale = 0.22
 stream = ExtResource("7_hsl5p")
 
 [connection signal="timeout" from="owTimer" to="." method="_on_ow_timer_timeout"]
+[node name="TurrentParent" type="Node2D" parent="."]
+top_level = true
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

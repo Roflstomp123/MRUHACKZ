@@ -1,22 +1,37 @@
 extends Node
+class_name ModifierSingleton
 
 """
 Holds all of the modifiers for quick acess later on turrets and stuff.
 Make sure to add all of the modifiers in here
 """
-
+var turret:PackedScene = preload("res://Player/Turrets/turret.tscn")
 @onready var player = get_tree().root.get_node("temp_player")
 
+@onready var turret_inputs:Array[String] = [
+	"1",
+	"2",
+	"3",
+	"4",
+	"5",
+	"6",
+	"7",
+	"8",
+	"9"
+]
+
+##List of all modifiers
 #Make sure to add all of the modifiers in here
-var modifiers:Array[AttackModifier] = [
+var modifier_list :Array[AttackModifier] = [
 	preload("res://Player/Modifiers/increase_size.tres")
 ]
+
+## The current list used for the turrets. Only 9 long.
+var turret_modifiers:Array[AttackModifier]
 var curr_mod
 var modifier_file_path = "res://Player/Modifiers/"
 
-var turrets:Array[AttackModifier] = []
-
 func _ready():
-	turrets.resize(9)
-	turrets.fill(AttackModifier.new())
+	turret_modifiers.resize(9)
+	turret_modifiers.fill(AttackModifier.new())
 	pass 
