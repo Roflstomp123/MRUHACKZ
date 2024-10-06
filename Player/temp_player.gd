@@ -16,6 +16,11 @@ const TURRET_POSITION_OFFSET = 100
 # Just having them in a dictionary would be good, but that also makes customizability harder.
 # Just moving all of that to the modifier _init, though this is not necesserally the greatest idea.
 
+
+var random_strength = 10.0
+var shake_fade = 5.0
+var shake_strength = 0.0
+
 ## Health
 var health_max = 100
 var health_current = 50
@@ -124,13 +129,16 @@ func _process(delta):
 	
 	## Attack
 	attack_cooldown -= delta
-	
 
+	if shake_strength > 0:
+		shake_strength = lerpf(shake_strength,0,shake_fade * delta)
+		$Camera2D.offset = random_offset()
 	pass
 
 
 func take_damage(damage):
 	health_current -= 100
+	apply_shake()
 	if health_current <= 0:
 		$AnimationPlayer.play("byebye")
 	else:
@@ -155,3 +163,10 @@ func after_death():
 	set_process_mode(4)
 	print("dead")
 	pass 
+
+
+func apply_shake():
+	shake_strength = random_strength
+	
+func random_offset():
+	return Vector2(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength))

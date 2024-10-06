@@ -4,15 +4,18 @@ extends CharacterBody2D
 
 
 const SPEED = 50
-var health = 3:
+var health = 30:
 	set(val):
 		health = val
 		if health <= 0:
 			kill()
 			
-
+			
+var move_left = true
+var movementx = 1
+var diagonal_distance = 1.0
 var transitioning = false
-var state = CIRCLE_ATTACK
+var state = MOVE_DIAGONAL
 ## States
 enum {
 	MOVE_DOWN,
@@ -23,6 +26,7 @@ enum {
 }
 
 func _ready():
+	
 	var vol = randf_range(0.5, 1)
 	var pitch = randf_range(1.6, 2.2)
 	$AudioStreamPlayer2D.volume_db = vol
@@ -43,14 +47,15 @@ func _physics_process(delta: float) -> void:
 			velocity.y = SPEED
 			move_and_slide()
 		MOVE_DIAGONAL:
+			velocity.x = SPEED * movementx
 			velocity.y = SPEED
-			velocity.x = SPEED
 			move_and_slide()
 		FOLLOW_PLAYER:
 			if get_parent().player:
 				var player = get_parent().player
 				var player_direction = global_position.direction_to(player.global_position)
 				rotation = player_direction.angle()
+				velocity = player_direction * SPEED
 				move_and_slide()
 				
 			pass
@@ -80,3 +85,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func _on_hurt_box_area_entered(area):
 	health -= 1
+
+
+func _on_timer_timeout():
+	movementx = movementx*-1
