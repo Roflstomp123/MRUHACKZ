@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 EnemySingleton="*res://Other/EnemySingleton.gd"
 ModifiersSingleton="*res://Other/ModifiersSingleton.gd"
+Gamemanager="*res://Levels/gamemanager.gd"
 
 [display]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dwh612pdj51oo"]
+[gd_scene load_steps=17 format=3 uid="uid://dwh612pdj51oo"]
 
 [ext_resource type="PackedScene" uid="uid://d2y3tr3j5exhm" path="res://Player/temp_player.tscn" id="1_hq4be"]
 [ext_resource type="PackedScene" uid="uid://3pjtbtv6mgdk" path="res://Enemy/EnemySpawner/enemy_spawner.tscn" id="1_ip621"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://pccm7ghaxms2" path="res://Enemy/Pink alien.tscn" id="4_34cgj"]
 [ext_resource type="PackedScene" uid="uid://yxeju5uyhvx2" path="res://Enemy/purps.tscn" id="5_ydgeb"]
 [ext_resource type="AudioStream" uid="uid://c6yl52otepoe5" path="res://Assets/026491_pixel-song-8-72675.mp3" id="8_mjc66"]
+[ext_resource type="PackedScene" uid="uid://bhphqnlr5pagf" path="res://Levels/death_menu.tscn" id="9_88bg6"]
 
 [sub_resource type="Resource" id="Resource_dka08"]
 script = ExtResource("2_4jaty")
@@ -46,15 +47,21 @@ size = Vector2(34.9999, 1889.88)
 
 [node name="temp_level" type="Node2D"]
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="DeathMenu" parent="CanvasLayer2" instance=ExtResource("9_88bg6")]
+visible = false
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -20
 follow_viewport_enabled = true
 
 [node name="Background" parent="CanvasLayer" instance=ExtResource("1_lxviy")]
-offset_left = -13.0
-offset_top = 3.0
-offset_right = -13.0
-offset_bottom = 3.0
+offset_left = -194.0
+offset_top = -2.0
+offset_right = -194.0
+offset_bottom = -2.0
+scale = Vector2(1.17032, 1.07793)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("1_ip621")]
 enemy_spawner_instructions = Array[ExtResource("2_4jaty")]([SubResource("Resource_dka08"), SubResource("Resource_y3af4"), SubResource("Resource_wun0i"), SubResource("Resource_wcf3v")])
@@ -67,8 +74,9 @@ position = Vector2(856, -144)
 
 [node name="Purps" parent="EnemySpawner" instance=ExtResource("5_ydgeb")]
 
-[node name="temp_player" parent="." instance=ExtResource("1_hq4be")]
+[node name="temp_player" parent="." node_paths=PackedStringArray("deathmenu") instance=ExtResource("1_hq4be")]
 position = Vector2(872, 1048)
+deathmenu = NodePath("../CanvasLayer2/DeathMenu")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="temp_player"]
 visible = false

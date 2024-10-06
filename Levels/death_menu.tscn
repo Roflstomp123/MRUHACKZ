@@ -5,7 +5,6 @@
 [ext_resource type="FontFile" uid="uid://ctqh57l0ggcan" path="res://Assets/6809 Chargen.otf" id="2_v0syj"]
 
 [node name="DeathMenu" type="Control"]
-process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

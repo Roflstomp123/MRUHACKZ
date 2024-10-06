@@ -1,7 +1,5 @@
 extends Control
 
-const TEMP_LEVEL = preload("res://Levels/temp_level.tscn")
-
 var tween = create_tween()
 func _process(delta):
 	for i in range(10):
@@ -17,7 +15,7 @@ func _process(delta):
 
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_packed(TEMP_LEVEL)
+	Gamemanager.change_scene("TempLevel")
 
 
 func _on_quit_button_pressed():
