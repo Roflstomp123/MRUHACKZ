@@ -24,7 +24,7 @@ enum {
 
 func _ready():
 	var vol = randf_range(0.5, 2)
-	var pitch = randf_range(0.5, 1)
+	var pitch = randf_range(0.85, 2)
 	$AudioStreamPlayer2D.volume_db = vol
 	$AudioStreamPlayer2D.pitch_scale = pitch
 	$AudioStreamPlayer2D.play()

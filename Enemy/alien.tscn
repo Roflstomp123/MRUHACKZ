@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://1q40oymcgcqt"]
+[gd_scene load_steps=20 format=3 uid="uid://1q40oymcgcqt"]
 
 [ext_resource type="Script" path="res://Enemy/alien.gd" id="1_mms7r"]
 [ext_resource type="Texture2D" uid="uid://twvr14n5bo4r" path="res://Assets/enemy-explode.png" id="2_0o23c"]
@@ -101,6 +101,9 @@ size = Vector2(50, 49)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_myn7n"]
 size = Vector2(30, 30)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_c08jy"]
+radius = 97.2523
+
 [node name="Orange Alien" type="CharacterBody2D"]
 script = ExtResource("1_mms7r")
 
@@ -122,5 +125,14 @@ texture = SubResource("PlaceholderTexture2D_myn7n")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_x4mq2")
+pitch_scale = 0.89
+
+[node name="Hurt box" type="Area2D" parent="."]
+collision_layer = 17408
+collision_mask = 4352
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt box"]
+position = Vector2(-8, -15)
+shape = SubResource("CircleShape2D_c08jy")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

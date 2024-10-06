@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d2y3tr3j5exhm"]
+[gd_scene load_steps=31 format=3 uid="uid://d2y3tr3j5exhm"]
 
 [ext_resource type="Script" path="res://Player/temp_player.gd" id="1_rdv07"]
 [ext_resource type="Texture2D" uid="uid://coe8bvsg7p2nq" path="res://Player/hackzplayer.png" id="2_skexy"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bhii2lrlym0ad" path="res://Menus/make_turret_menu.tscn" id="3_e0cnx"]
 [ext_resource type="AudioStream" uid="uid://bw0gg71e430qq" path="res://Assets/pew-pew-81279.mp3" id="5_ut0v5"]
 [ext_resource type="AudioStream" uid="uid://ctt5qgm4hc2qe" path="res://Assets/laser-45816.mp3" id="6_ca1rn"]
+[ext_resource type="AudioStream" uid="uid://br8idxs0thl74" path="res://Assets/retro-hurt-2-236675.mp3" id="7_hsl5p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nfocx"]
 atlas = ExtResource("2_skexy")
@@ -207,6 +208,9 @@ stream = ExtResource("5_ut0v5")
 stream = ExtResource("6_ca1rn")
 volume_db = 6.715
 pitch_scale = 0.22
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_hsl5p")
 
 [connection signal="timeout" from="owTimer" to="." method="_on_ow_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

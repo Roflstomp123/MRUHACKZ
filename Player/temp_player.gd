@@ -91,6 +91,7 @@ func _process(delta):
 func take_damage(damage):
 	$owTimer.start()
 	$AnimatedSprite2D.play("ow")
+	$AudioStreamPlayer2D3.play()
 	health_current -= damage
 	pass
 
