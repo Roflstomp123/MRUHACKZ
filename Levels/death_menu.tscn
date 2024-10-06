@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq87s5ojjn0f"]
+
+[ext_resource type="Texture2D" uid="uid://i5hvf408ms2h" path="res://Assets/screen-overlay.png" id="1_cm6gr"]
+[ext_resource type="FontFile" uid="uid://ctqh57l0ggcan" path="res://Assets/6809 Chargen.otf" id="2_v0syj"]
+
+[node name="DeathMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Screen-overlay" type="Sprite2D" parent="."]
+position = Vector2(925, 539)
+scale = Vector2(4.66797, 3.08203)
+texture = ExtResource("1_cm6gr")
+
+[node name="Game Over" type="Label" parent="."]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 217.0
+offset_right = 1531.0
+offset_bottom = 458.0
+theme_override_colors/font_color = Color(0.638884, 1.08294e-06, 1.29953e-06, 1)
+theme_override_fonts/font = ExtResource("2_v0syj")
+theme_override_font_sizes/font_size = 200
+text = "Game Over"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 600.0
+offset_right = 1574.0
+offset_bottom = 880.0
+
+[node name="Main Menu" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72549, 0.72549, 0.72549, 1)
+theme_override_fonts/font = ExtResource("2_v0syj")
+theme_override_font_sizes/font_size = 100
+text = "Main Menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 600.0
+offset_right = 920.0
+offset_bottom = 935.0
+
+[node name="Play Again" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72549, 0.72549, 0.72549, 1)
+theme_override_fonts/font = ExtResource("2_v0syj")
+theme_override_font_sizes/font_size = 100
+text = "Play Again"
