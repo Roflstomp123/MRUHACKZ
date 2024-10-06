@@ -126,7 +126,7 @@ radius = 97.2523
 script = ExtResource("1_8maj4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.90735e-06, 1.90735e-06)
+position = Vector2(1.13687e-13, 1.13687e-13)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_ts2wy")
 animation = &"Idle"
@@ -134,17 +134,14 @@ autoplay = "Idle"
 offset = Vector2(3.8, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -4)
 scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_0l51j")
 
 [node name="Hurt box" type="Area2D" parent="."]
-position = Vector2(10, 12)
 collision_layer = 17408
 collision_mask = 4352
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt box"]
-position = Vector2(-8, -15)
 shape = SubResource("CircleShape2D_fsmg6")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

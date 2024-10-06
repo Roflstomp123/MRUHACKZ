@@ -16,7 +16,7 @@ const TURRET_POSITION_OFFSET = 100
 # Just moving all of that to the modifier _init, though this is not necesserally the greatest idea.
 
 
-var random_strength = 10.0
+var random_strength = 7.0
 var shake_fade = 5.0
 var shake_strength = 0.0
 
@@ -39,11 +39,10 @@ var speed_increase_modifier:float = 100 #pixels/second ??
 
 ## Movement
 var move_direction:Vector2
-var move_speed:float = 400
+var move_speed:float = 750
 
 
 func _input(event: InputEvent) -> void:
-	
 	## Movement handled inside of process because that's eaiser.
 	## Committing to an attack
 	if event.is_action("Finish attack") and attack_cooldown < 0:
@@ -78,8 +77,6 @@ func _input(event: InputEvent) -> void:
 		#TODO pausing?
 		#also this shouldn't be here, it should be done after missions.
 		make_turret_menu.visible = not make_turret_menu.visible
-		
-		
 	
 	## Turret spawning
 	for input_str in ModifiersSingleton.turret_inputs:
@@ -94,7 +91,6 @@ func _input(event: InputEvent) -> void:
 			
 			
 			pass
-			
 
 func _process(delta):
 	## Movement 
@@ -115,9 +111,9 @@ func _process(delta):
 		$Camera2D.offset = random_offset()
 	pass
 
-
 func take_damage(damage):
 	health_current -= 100
+	random_strength = 15.0
 	apply_shake()
 	if health_current <= 0:
 		$AnimationPlayer.play("byebye")
@@ -140,9 +136,8 @@ func after_death():
 	print("dead")
 	pass 
 
-
 func apply_shake():
 	shake_strength = random_strength
-	
+
 func random_offset():
 	return Vector2(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength))
