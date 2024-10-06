@@ -112,7 +112,7 @@ func _process(delta):
 func take_damage(damage):
 	health_current -= 100
 	if health_current <= 0:
-		deathmenu.visible = true
+		$AnimationPlayer.play("byebye")
 	else:
 		$owTimer.start()
 		$AnimatedSprite2D.play("ow")
@@ -125,3 +125,9 @@ func _on_ow_timer_timeout():
 
 func _on_area_2d_area_entered(area):
 	take_damage(10)
+
+func after_death():
+	deathmenu.visible = true
+	set_process_mode(4)
+	print("dead")
+	pass 
