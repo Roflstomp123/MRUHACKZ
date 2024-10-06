@@ -1,12 +1,16 @@
 extends Node
+## Can't have the same name as autoload since it hides it. This is not optimal ;_;
 class_name ModifierSingleton
 
 """
 Holds all of the modifiers for quick acess later on turrets and stuff.
 Make sure to add all of the modifiers in here
 """
+var max_turrets = 2
 var turret:PackedScene = preload("res://Player/Turrets/turret.tscn")
 @onready var player = get_tree().root.get_node("temp_player")
+
+
 
 @onready var turret_inputs:Array[String] = [
 	"1",

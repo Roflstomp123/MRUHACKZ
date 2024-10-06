@@ -126,7 +126,6 @@ texture = SubResource("PlaceholderTexture2D_myn7n")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_x4mq2")
 pitch_scale = 0.89
-bus = &"Effects"
 
 [node name="Hurt box" type="Area2D" parent="."]
 collision_layer = 17408

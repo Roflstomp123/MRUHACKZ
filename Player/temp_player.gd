@@ -74,17 +74,20 @@ func _input(event: InputEvent) -> void:
 		#also this shouldn't be here, it should be done after missions.
 		make_turret_menu.visible = not make_turret_menu.visible
 		
-	
+		
 	
 	## Turret spawning
 	for input_str in ModifiersSingleton.turret_inputs:
 		if event.is_action_pressed(input_str):
-			var new_turret:Turret = TURRET.instantiate()
-			turrent_parent.add_child(new_turret)
-			new_turret.key = int(input_str)
+			if turrent_parent.get_children().size() < ModifiersSingleton.max_turrets:
+				var new_turret:Turret = TURRET.instantiate()
+				turrent_parent.add_child(new_turret)
+				new_turret.key = int(input_str)
+				
+				new_turret.position = position
+				new_turret.position.y -= TURRET_POSITION_OFFSET
 			
-			new_turret.position = position
-			new_turret.position.y -= TURRET_POSITION_OFFSET
+			
 			pass
 			
 
