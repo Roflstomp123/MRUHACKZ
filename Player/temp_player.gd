@@ -91,7 +91,8 @@ func _input(event: InputEvent) -> void:
 	#if event.is_action("multi attack")
 	## Should do a for inputs like in turrets, but eh
 	if event.is_action("tracking"):
-		current_modifier.add(preload("res://Player/Modifiers/tracking.tres"))
+		if ModifiersSingleton.modifier_list.size() > 1:
+			current_modifier.add(ModifiersSingleton.modifier_list[1])#preload("res://Player/Modifiers/tracking.tres")
 	
 	
 	if event.is_action_pressed("open_turret_menu"):
