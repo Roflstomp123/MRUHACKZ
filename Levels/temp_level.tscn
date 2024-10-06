@@ -37,6 +37,7 @@ level_list = Array[ExtResource("3_pa6ky")]([ExtResource("3_bc3tg"), ExtResource(
 won_ui = NodePath("../CanvasLayer/WonUI")
 
 [node name="temp_player" parent="." instance=ExtResource("1_hq4be")]
+process_mode = 3
 position = Vector2(872, 1048)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="temp_player"]
