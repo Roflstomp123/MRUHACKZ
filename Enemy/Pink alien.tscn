@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://pccm7ghaxms2"]
+[gd_scene load_steps=22 format=3 uid="uid://pccm7ghaxms2"]
 
 [ext_resource type="Script" path="res://Enemy/bigPink.gd" id="1_8maj4"]
 [ext_resource type="Texture2D" uid="uid://cdoc2k8e726tf" path="res://Assets/biggest-enemy-idle.png" id="1_mdn8t"]
 [ext_resource type="Texture2D" uid="uid://cqxshnmsnosvf" path="res://Assets/biggest-enemy-explode.png" id="1_xllfb"]
+[ext_resource type="AudioStream" uid="uid://rfixeo3p0mqy" path="res://Assets/game-character-140506.mp3" id="4_qhvtt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oeskx"]
 atlas = ExtResource("1_xllfb")
@@ -125,18 +126,20 @@ radius = 97.2523
 script = ExtResource("1_8maj4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.90735e-06, 1.90735e-06)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_ts2wy")
 animation = &"Idle"
 autoplay = "Idle"
+offset = Vector2(3.8, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(11.9478, -21.8539)
+position = Vector2(2, -4)
 scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_0l51j")
 
 [node name="Hurt box" type="Area2D" parent="."]
+position = Vector2(10, 12)
 collision_layer = 17408
 collision_mask = 4352
 
@@ -144,4 +147,10 @@ collision_mask = 4352
 position = Vector2(-8, -15)
 shape = SubResource("CircleShape2D_fsmg6")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qhvtt")
+pitch_scale = 0.89
+bus = &"Effects"
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="Hurt box" to="." method="_on_hurt_box_area_entered"]

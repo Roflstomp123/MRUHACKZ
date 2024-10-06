@@ -23,8 +23,8 @@ enum {
 }
 
 func _ready():
-	var vol = randf_range(0.5, 2)
-	var pitch = randf_range(0.85, 2)
+	var vol = randf_range(0.5, 1)
+	var pitch = randf_range(1.6, 2.2)
 	$AudioStreamPlayer2D.volume_db = vol
 	$AudioStreamPlayer2D.pitch_scale = pitch
 	$AudioStreamPlayer2D.play()
@@ -74,3 +74,9 @@ func kill():
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if health <= 0:
 		queue_free()
+
+
+
+
+func _on_hurt_box_area_entered(area):
+	health -= 1

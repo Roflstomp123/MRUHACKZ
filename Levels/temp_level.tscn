@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dwh612pdj51oo"]
+[gd_scene load_steps=18 format=4 uid="uid://dwh612pdj51oo"]
 
 [ext_resource type="PackedScene" uid="uid://d2y3tr3j5exhm" path="res://Player/temp_player.tscn" id="1_hq4be"]
 [ext_resource type="PackedScene" uid="uid://3pjtbtv6mgdk" path="res://Enemy/EnemySpawner/enemy_spawner.tscn" id="1_ip621"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://1q40oymcgcqt" path="res://Enemy/alien.tscn" id="2_6bin5"]
 [ext_resource type="Texture2D" uid="uid://dirhmku001wcg" path="res://Assets/space-background.png" id="3_5f6mu"]
 [ext_resource type="PackedScene" uid="uid://pccm7ghaxms2" path="res://Enemy/Pink alien.tscn" id="4_34cgj"]
-[ext_resource type="PackedScene" path="res://Enemy/purps.tscn" id="5_ydgeb"]
+[ext_resource type="PackedScene" uid="uid://yxeju5uyhvx2" path="res://Enemy/purps.tscn" id="5_ydgeb"]
+[ext_resource type="AudioStream" uid="uid://c6yl52otepoe5" path="res://Assets/026491_pixel-song-8-72675.mp3" id="8_mjc66"]
 
 [sub_resource type="Resource" id="Resource_dka08"]
 script = ExtResource("2_4jaty")
@@ -3687,3 +3688,9 @@ physics_material_override = SubResource("PhysicsMaterial_ghn1h")
 position = Vector2(961.063, 1102)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_8nlmp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_mjc66")
+volume_db = 0.1
+autoplay = true
+bus = &"Music"

@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://1jul2nyblhv3"]
+[gd_scene load_steps=18 format=3 uid="uid://yxeju5uyhvx2"]
 
 [ext_resource type="Texture2D" uid="uid://ei4rke8rdy3r" path="res://Assets/bigger-enemy-exploding.png" id="1_3wx1h"]
 [ext_resource type="Script" path="res://Enemy/purps.gd" id="1_oyux0"]
 [ext_resource type="Texture2D" uid="uid://batcf7qiq05f5" path="res://Assets/bigger-enemy-idle.png" id="2_kqavg"]
+[ext_resource type="AudioStream" uid="uid://rfixeo3p0mqy" path="res://Assets/game-character-140506.mp3" id="4_vyinn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nm74n"]
 atlas = ExtResource("1_3wx1h")
@@ -102,8 +103,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_rnvar"]
 radius = 51.0392
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xj04c"]
-radius = 44.1022
+[sub_resource type="CircleShape2D" id="CircleShape2D_ra4ny"]
+radius = 30.0167
 
 [node name="Purps" type="CharacterBody2D"]
 script = ExtResource("1_oyux0")
@@ -117,12 +118,18 @@ autoplay = "Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rnvar")
 
-[node name="HURT BOX" type="Area2D" parent="."]
-collision_layer = 16384
-collision_mask = 256
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_vyinn")
+pitch_scale = 0.89
+bus = &"Effects"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HURT BOX"]
-shape = SubResource("CircleShape2D_xj04c")
+[node name="Hurt box" type="Area2D" parent="."]
+collision_layer = 17408
+collision_mask = 4352
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt box"]
+position = Vector2(1, -42)
+shape = SubResource("CircleShape2D_ra4ny")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="area_exited" from="HURT BOX" to="." method="_on_hurt_box_area_exited"]
+[connection signal="area_entered" from="Hurt box" to="." method="_on_hurt_box_area_entered"]
