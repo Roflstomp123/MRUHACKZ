@@ -1,0 +1,117 @@
+[gd_scene load_steps=17 format=3 uid="uid://cthd5j6d7j8yn"]
+
+[ext_resource type="PackedScene" uid="uid://cq87s5ojjn0f" path="res://Levels/death_menu.tscn" id="1_t21to"]
+[ext_resource type="PackedScene" path="res://Levels/background.tscn" id="2_67s8h"]
+[ext_resource type="PackedScene" uid="uid://3pjtbtv6mgdk" path="res://Enemy/EnemySpawner/enemy_spawner.tscn" id="3_k5yy7"]
+[ext_resource type="Script" path="res://Enemy/EnemySpawner/single_enemy_spawn_instruction.gd" id="4_k5r3c"]
+[ext_resource type="PackedScene" uid="uid://1q40oymcgcqt" path="res://Enemy/alien.tscn" id="5_c22bk"]
+[ext_resource type="PackedScene" path="res://Enemy/Pink alien.tscn" id="6_m1qc6"]
+[ext_resource type="PackedScene" uid="uid://yxeju5uyhvx2" path="res://Enemy/purps.tscn" id="7_ng3eu"]
+[ext_resource type="PackedScene" uid="uid://d2y3tr3j5exhm" path="res://Player/temp_player.tscn" id="8_ylwsy"]
+[ext_resource type="AudioStream" uid="uid://c6yl52otepoe5" path="res://Assets/026491_pixel-song-8-72675.mp3" id="9_gtwcp"]
+
+[sub_resource type="Resource" id="Resource_dka08"]
+script = ExtResource("4_k5r3c")
+position = Vector2(400, 100)
+enemy_scene = ExtResource("5_c22bk")
+time_offset = 2.0
+state = -1
+
+[sub_resource type="Resource" id="Resource_y3af4"]
+script = ExtResource("4_k5r3c")
+position = Vector2(600, 200)
+enemy_scene = ExtResource("6_m1qc6")
+time_offset = 5.0
+state = -1
+
+[sub_resource type="Resource" id="Resource_wun0i"]
+script = ExtResource("4_k5r3c")
+position = Vector2(0, 0)
+time_offset = 0.0
+state = -1
+
+[sub_resource type="Resource" id="Resource_wcf3v"]
+script = ExtResource("4_k5r3c")
+position = Vector2(70, 0)
+enemy_scene = ExtResource("5_c22bk")
+time_offset = 2.0
+state = -1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arefr"]
+size = Vector2(64, 64)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ghn1h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nlmp"]
+size = Vector2(34.9999, 1889.88)
+
+[node name="temp_level" type="Node2D"]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="DeathMenu" parent="CanvasLayer2" instance=ExtResource("1_t21to")]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -20
+follow_viewport_enabled = true
+
+[node name="Background" parent="CanvasLayer" instance=ExtResource("2_67s8h")]
+offset_left = -194.0
+offset_top = -2.0
+offset_right = -194.0
+offset_bottom = -2.0
+scale = Vector2(1.17032, 1.07793)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("3_k5yy7")]
+enemy_spawner_instructions = Array[ExtResource("4_k5r3c")]([SubResource("Resource_dka08"), SubResource("Resource_y3af4"), SubResource("Resource_wun0i"), SubResource("Resource_wcf3v")])
+
+[node name="Orange Alien" parent="EnemySpawner" instance=ExtResource("5_c22bk")]
+position = Vector2(559.625, -156.294)
+
+[node name="Bigpink" parent="EnemySpawner" instance=ExtResource("6_m1qc6")]
+position = Vector2(856, -144)
+
+[node name="Purps" parent="EnemySpawner" instance=ExtResource("7_ng3eu")]
+
+[node name="temp_player" parent="." node_paths=PackedStringArray("deathmenu") instance=ExtResource("8_ylwsy")]
+position = Vector2(872, 1048)
+deathmenu = NodePath("../CanvasLayer2/DeathMenu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="temp_player"]
+visible = false
+shape = SubResource("RectangleShape2D_arefr")
+
+[node name="Camera2D" type="Camera2D" parent="temp_player"]
+position = Vector2(0, -430)
+zoom = Vector2(1.1, 1.1)
+limit_left = -40
+limit_right = 1980
+position_smoothing_enabled = true
+
+[node name="wall" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_ghn1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+position = Vector2(-5, 542)
+shape = SubResource("RectangleShape2D_8nlmp")
+
+[node name="wall2" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_ghn1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall2"]
+position = Vector2(1926, 541.25)
+shape = SubResource("RectangleShape2D_8nlmp")
+
+[node name="floor" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_ghn1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2(961.063, 1102)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_8nlmp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_gtwcp")
+volume_db = 0.1
+autoplay = true
