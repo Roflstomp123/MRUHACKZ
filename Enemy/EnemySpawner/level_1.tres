@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="EnemySpawnInstructions" load_steps=11 format=3 uid="uid://dt86sru3fjaxi"]
+[gd_resource type="Resource" script_class="EnemySpawnInstructions" load_steps=11 format=3 uid="uid://dbehcikcot87d"]
 
 [ext_resource type="Script" path="res://Enemy/EnemySpawner/enemy_spawner_instructions.gd" id="1_yqmrv"]
 [ext_resource type="Script" path="res://Enemy/EnemySpawner/single_enemy_spawn_instruction.gd" id="2_yiqc2"]
 [ext_resource type="PackedScene" uid="uid://1q40oymcgcqt" path="res://Enemy/alien.tscn" id="3_2fv5p"]
-[ext_resource type="PackedScene" uid="uid://yxeju5uyhvx2" path="res://Enemy/purps.tscn" id="3_y41xc"]
-[ext_resource type="PackedScene" uid="uid://pccm7ghaxms2" path="res://Enemy/Pink alien.tscn" id="4_eqsd4"]
+[ext_resource type="PackedScene" uid="uid://cohx7hwmq3kpx" path="res://Enemy/purps.tscn" id="3_y41xc"]
+[ext_resource type="PackedScene" uid="uid://dkdmeb6kjd1a6" path="res://Enemy/Pink alien.tscn" id="4_eqsd4"]
 
 [sub_resource type="Resource" id="Resource_y1tvo"]
 script = ExtResource("2_yiqc2")
