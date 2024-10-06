@@ -20,7 +20,8 @@ var round_name:String:
 			congrats.remove_theme_font_size_override("font_size")#.font_size = 128
 			congrats.text = "Congratulations \n you beat " + round_name
 			ModifiersSingleton.max_turret += int(round_name)
-			label_2.text = unlock_per_level[int(round_name)]
+			label_2.text = unlock_per_level_dictionary[int(round_name)][0]
+			ModifiersSingleton.modifier_list.append(unlock_per_level_dictionary[int(round_name)][1])
 			quit_button.visible = true
 
 var unlock_per_level:Array[String] = [

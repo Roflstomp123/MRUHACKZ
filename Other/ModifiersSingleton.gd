@@ -27,8 +27,8 @@ var empty_modifier = preload("res://Player/Modifiers/empty_modifier.tres")
 ##List of all modifiers
 #Make sure to add all of the modifiers in here
 var modifier_list :Array[AttackModifier] = [
-	preload("res://Player/Modifiers/increase_size.tres"),
-	preload("res://Player/Modifiers/tracking.tres")
+	preload("res://Player/Modifiers/increase_size.tres")#,
+	#preload("res://Player/Modifiers/tracking.tres")
 ]
 
 ## The current list used for the turrets. Only 9 long.
