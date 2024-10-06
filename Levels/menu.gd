@@ -5,10 +5,11 @@ func _process(delta):
 	for i in range(10):
 		tween.tween_property($Station, "position", Vector2(1400, 700), 4)
 		tween.tween_property($Station, "rotation", 0.2, 8)
-		tween.tween_property($Station, "position", Vector2(1300, 800), 6)
-		tween.tween_property($Station, "position", Vector2(1200, 700), 4)
+		tween.tween_property($Station, "position", Vector2(1300, 800), 8)
+		tween.tween_property($Station, "rotation", 0.1, 4)
+		tween.tween_property($Station, "position", Vector2(1200, 700), 8)
 		tween.tween_property($Station, "rotation", 0, 8)
-		tween.tween_property($Station, "position", Vector2(1400, 700), 4)
+		tween.tween_property($Station, "position", Vector2(1400, 800), 8)
 	pass
 
 

@@ -44,13 +44,6 @@ deathmenu = NodePath("../CanvasLayer2/DeathMenu")
 visible = false
 shape = SubResource("RectangleShape2D_arefr")
 
-[node name="Camera2D" type="Camera2D" parent="temp_player"]
-position = Vector2(0, -430)
-zoom = Vector2(1.1, 1.1)
-limit_left = -40
-limit_right = 1980
-position_smoothing_enabled = true
-
 [node name="wall" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_ghn1h")
 

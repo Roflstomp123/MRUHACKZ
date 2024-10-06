@@ -369,5 +369,12 @@ libraries = {
 "": SubResource("AnimationLibrary_48jny")
 }
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -418)
+zoom = Vector2(1.1, 1.1)
+limit_left = -40
+limit_right = 1980
+position_smoothing_enabled = true
+
 [connection signal="timeout" from="owTimer" to="." method="_on_ow_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
