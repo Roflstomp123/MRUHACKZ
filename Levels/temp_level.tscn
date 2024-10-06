@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Enemy/EnemySpawner/single_enemy_spawn_instruction.gd" id="2_4jaty"]
 [ext_resource type="PackedScene" uid="uid://1q40oymcgcqt" path="res://Enemy/alien.tscn" id="2_6bin5"]
 [ext_resource type="Texture2D" uid="uid://dirhmku001wcg" path="res://Assets/space-background.png" id="3_5f6mu"]
-[ext_resource type="PackedScene" uid="uid://wuinle5djp7i" path="res://Enemy/Pink alien.tscn" id="4_34cgj"]
+[ext_resource type="PackedScene" path="res://Enemy/Pink alien.tscn" id="4_34cgj"]
 
 [sub_resource type="Resource" id="Resource_dka08"]
 script = ExtResource("2_4jaty")
