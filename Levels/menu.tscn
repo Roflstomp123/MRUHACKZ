@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://8w20wn4aughi" path="res://Levels/background.tscn" id="2_t3c17"]
 [ext_resource type="Texture2D" uid="uid://dq1ej5f15s2da" path="res://Assets/station.png" id="3_4h86i"]
 [ext_resource type="Texture2D" uid="uid://bs2kk7behjiuc" path="res://Assets/sun.png" id="3_dnsnn"]
-[ext_resource type="AudioStream" uid="uid://dpeuxcuwxwtaa" path="res://Assets/8-bit-horror-noises-63944.mp3" id="5_w851l"]
+[ext_resource type="AudioStream" uid="uid://cclw4p8qkj5gl" path="res://Assets/beepboops.mp3" id="5_il1at"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ytya"]
 
@@ -148,8 +148,9 @@ theme_override_constants/separation = 32
 theme_override_styles/separator = SubResource("StyleBoxEmpty_3ytya")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_w851l")
+stream = ExtResource("5_il1at")
 autoplay = true
+stream_paused = true
 bus = &"Music"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
