@@ -5,9 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dsqqponge0fu2" path="res://Levels/background.tscn" id="1_lxviy"]
 [ext_resource type="Script" path="res://Enemy/EnemySpawner/single_enemy_spawn_instruction.gd" id="2_4jaty"]
 [ext_resource type="PackedScene" uid="uid://1q40oymcgcqt" path="res://Enemy/alien.tscn" id="2_6bin5"]
-[ext_resource type="Texture2D" uid="uid://dirhmku001wcg" path="res://Assets/space-background.png" id="3_5f6mu"]
-[ext_resource type="PackedScene" path="res://Enemy/Pink alien.tscn" id="4_34cgj"]
-[ext_resource type="PackedScene" path="res://Enemy/purps.tscn" id="5_ydgeb"]
+[ext_resource type="PackedScene" uid="uid://pccm7ghaxms2" path="res://Enemy/Pink alien.tscn" id="4_34cgj"]
+[ext_resource type="PackedScene" uid="uid://yxeju5uyhvx2" path="res://Enemy/purps.tscn" id="5_ydgeb"]
 [ext_resource type="AudioStream" uid="uid://c6yl52otepoe5" path="res://Assets/026491_pixel-song-8-72675.mp3" id="8_mjc66"]
 
 [sub_resource type="Resource" id="Resource_dka08"]
@@ -49,6 +48,7 @@ size = Vector2(34.9999, 1889.88)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -20
+follow_viewport_enabled = true
 
 [node name="Background" parent="CanvasLayer" instance=ExtResource("1_lxviy")]
 offset_left = -13.0
