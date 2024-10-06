@@ -4,7 +4,7 @@ extends CharacterBody2D
 var player_attack:PackedScene = preload("res://Player/Attacks/PlayerAttack.tscn")
 @onready var projectles_parent: Node2D = $ProjectlesParent
 @onready var make_turret_menu: MarginContainer = $CanvasLayer/MakeTurretMenu
-
+@export var deathmenu: Control
 
 
 # Not sure how to organize the modifiers.
@@ -77,7 +77,9 @@ func _process(delta):
 	## Attack
 	attack_cooldown -= delta
 	
-	
+	if health_current <= 0:
+		deathmenu.visible = true
+		get_tree().paused = true
 	
 	pass
 

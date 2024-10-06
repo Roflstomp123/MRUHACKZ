@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dwh612pdj51oo"]
+[gd_scene load_steps=14 format=4 uid="uid://dwh612pdj51oo"]
 
 [ext_resource type="PackedScene" uid="uid://d2y3tr3j5exhm" path="res://Player/temp_player.tscn" id="1_hq4be"]
 [ext_resource type="PackedScene" uid="uid://3pjtbtv6mgdk" path="res://Enemy/EnemySpawner/enemy_spawner.tscn" id="1_ip621"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://1q40oymcgcqt" path="res://Enemy/alien.tscn" id="2_6bin5"]
 [ext_resource type="Texture2D" uid="uid://dirhmku001wcg" path="res://Assets/space-background.png" id="3_5f6mu"]
 [ext_resource type="PackedScene" path="res://Enemy/Pink alien.tscn" id="4_34cgj"]
+[ext_resource type="PackedScene" uid="uid://bhphqnlr5pagf" path="res://Levels/death_menu.tscn" id="7_6xevn"]
 
 [sub_resource type="Resource" id="Resource_dka08"]
 script = ExtResource("2_4jaty")
@@ -3622,8 +3623,9 @@ position = Vector2(559.625, -156.294)
 [node name="Bigpink" parent="EnemySpawner" instance=ExtResource("4_34cgj")]
 position = Vector2(1009, 111)
 
-[node name="temp_player" parent="." instance=ExtResource("1_hq4be")]
+[node name="temp_player" parent="." node_paths=PackedStringArray("deathmenu") instance=ExtResource("1_hq4be")]
 position = Vector2(872, 1048)
+deathmenu = NodePath("../DeathMenu")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="temp_player"]
 visible = false
@@ -3666,3 +3668,5 @@ shape = SubResource("RectangleShape2D_8nlmp")
 
 [node name="Orange Alien" parent="." instance=ExtResource("2_6bin5")]
 position = Vector2(648, 728)
+
+[node name="DeathMenu" parent="." instance=ExtResource("7_6xevn")]
