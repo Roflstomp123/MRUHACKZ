@@ -45,6 +45,7 @@ func _physics_process(delta: float) -> void:
 				var player_direction = global_position.direction_to(player.global_position)
 				rotation = player_direction.angle()
 				move_and_slide()
+				
 			pass
 		CIRCLE_ATTACK:
 			if !transitioning:
@@ -67,5 +68,3 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if health <= 0:
 		queue_free()
 		
-func bottom_death():
-	pass
