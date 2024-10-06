@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d2y3tr3j5exhm"]
+[gd_scene load_steps=27 format=3 uid="uid://d2y3tr3j5exhm"]
 
 [ext_resource type="Script" path="res://Player/temp_player.gd" id="1_rdv07"]
 [ext_resource type="Texture2D" uid="uid://coe8bvsg7p2nq" path="res://Player/hackzplayer.png" id="2_skexy"]
@@ -158,23 +158,22 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cqhom"]
+radius = 24.0208
+
 [node name="temp_player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_rdv07")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_a7xye")
-animation = &"hewwo"
+animation = &"ow"
 autoplay = "hewwo"
-frame_progress = 0.220872
+frame = 1
+frame_progress = 0.590264
 
 [node name="ProjectlesParent" type="Node2D" parent="."]
 top_level = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
-visible = false
-enabled = false
-zoom = Vector2(4, 4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -184,5 +183,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="owTimer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cqhom")
 
 [connection signal="timeout" from="owTimer" to="." method="_on_ow_timer_timeout"]

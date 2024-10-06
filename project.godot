@@ -22,7 +22,7 @@ ModifiersSingleton="*res://Other/ModifiersSingleton.gd"
 
 [display]
 
-window/size/viewport_width=1920
+window/size/viewport_width=1980
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 
