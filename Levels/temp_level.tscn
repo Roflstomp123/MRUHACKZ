@@ -5,10 +5,24 @@
 [ext_resource type="Script" path="res://Enemy/EnemySpawner/single_enemy_spawn_instruction.gd" id="2_4jaty"]
 [ext_resource type="PackedScene" uid="uid://1q40oymcgcqt" path="res://Enemy/alien.tscn" id="2_6bin5"]
 [ext_resource type="Texture2D" uid="uid://dirhmku001wcg" path="res://Assets/space-background.png" id="3_5f6mu"]
-[ext_resource type="PackedScene" path="res://Enemy/Pink alien.tscn" id="4_34cgj"]
-[ext_resource type="PackedScene" uid="uid://bhphqnlr5pagf" path="res://Levels/death_menu.tscn" id="7_6xevn"]
+[ext_resource type="PackedScene" uid="uid://wuinle5djp7i" path="res://Enemy/Pink alien.tscn" id="4_34cgj"]
+[ext_resource type="PackedScene" uid="uid://1jul2nyblhv3" path="res://Enemy/purps.tscn" id="5_ydgeb"]
 
 [sub_resource type="Resource" id="Resource_dka08"]
+script = ExtResource("2_4jaty")
+position = Vector2(400, 100)
+enemy_scene = ExtResource("2_6bin5")
+time_offset = 2.0
+state = -1
+
+[sub_resource type="Resource" id="Resource_y3af4"]
+script = ExtResource("2_4jaty")
+position = Vector2(600, 200)
+enemy_scene = ExtResource("4_34cgj")
+time_offset = 5.0
+state = -1
+
+[sub_resource type="Resource" id="Resource_wun0i"]
 script = ExtResource("2_4jaty")
 position = Vector2(0, 0)
 time_offset = 0.0
@@ -3615,13 +3629,15 @@ sources/0 = SubResource("TileSetAtlasSource_1j1aj")
 [node name="temp_level" type="Node2D"]
 
 [node name="EnemySpawner" parent="." instance=ExtResource("1_ip621")]
-enemy_spawner_instructions = Array[ExtResource("2_4jaty")]([SubResource("Resource_dka08")])
+enemy_spawner_instructions = Array[ExtResource("2_4jaty")]([SubResource("Resource_dka08"), SubResource("Resource_y3af4"), SubResource("Resource_wun0i")])
 
 [node name="Orange Alien" parent="EnemySpawner" instance=ExtResource("2_6bin5")]
 position = Vector2(559.625, -156.294)
 
 [node name="Bigpink" parent="EnemySpawner" instance=ExtResource("4_34cgj")]
-position = Vector2(1009, 111)
+position = Vector2(856, -144)
+
+[node name="Purps" parent="EnemySpawner" instance=ExtResource("5_ydgeb")]
 
 [node name="temp_player" parent="." node_paths=PackedStringArray("deathmenu") instance=ExtResource("1_hq4be")]
 position = Vector2(872, 1048)
@@ -3630,13 +3646,6 @@ deathmenu = NodePath("../DeathMenu")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="temp_player"]
 visible = false
 shape = SubResource("RectangleShape2D_arefr")
-
-[node name="Camera2D2" type="Camera2D" parent="temp_player"]
-position = Vector2(81, -430)
-zoom = Vector2(1.1, 1.1)
-limit_left = 0
-limit_right = 1970
-position_smoothing_enabled = true
 
 [node name="wall" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_ghn1h")
@@ -3665,8 +3674,3 @@ physics_material_override = SubResource("PhysicsMaterial_ghn1h")
 position = Vector2(961.063, 1102)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_8nlmp")
-
-[node name="Orange Alien" parent="." instance=ExtResource("2_6bin5")]
-position = Vector2(648, 728)
-
-[node name="DeathMenu" parent="." instance=ExtResource("7_6xevn")]
