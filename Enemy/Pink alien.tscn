@@ -1,6 +1,36 @@
-[gd_scene load_steps=11 format=3 uid="uid://wuinle5djp7i"]
+[gd_scene load_steps=20 format=3 uid="uid://wuinle5djp7i"]
 
+[ext_resource type="Script" path="res://Enemy/bigPink.gd" id="1_8maj4"]
 [ext_resource type="Texture2D" uid="uid://cdoc2k8e726tf" path="res://Assets/biggest-enemy-idle.png" id="1_mdn8t"]
+[ext_resource type="Texture2D" uid="uid://cqxshnmsnosvf" path="res://Assets/biggest-enemy-explode.png" id="1_xllfb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeskx"]
+atlas = ExtResource("1_xllfb")
+region = Rect2(9, 11, 49, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nawac"]
+atlas = ExtResource("1_xllfb")
+region = Rect2(137, 11, 49, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s657g"]
+atlas = ExtResource("1_xllfb")
+region = Rect2(201, 11, 49, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06dru"]
+atlas = ExtResource("1_xllfb")
+region = Rect2(265, 11, 49, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfaht"]
+atlas = ExtResource("1_xllfb")
+region = Rect2(329, 11, 49, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bn0s"]
+atlas = ExtResource("1_xllfb")
+region = Rect2(393, 11, 49, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcqpq"]
+atlas = ExtResource("1_xllfb")
+region = Rect2(73, 11, 49, 53)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sixk3"]
 atlas = ExtResource("1_mdn8t")
@@ -30,8 +60,34 @@ region = Rect2(67, 7, 62, 57)
 atlas = ExtResource("1_mdn8t")
 region = Rect2(5, 7, 62, 57)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_wd0yc"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ts2wy"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeskx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nawac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s657g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06dru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfaht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bn0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcqpq")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sixk3")
@@ -55,20 +111,23 @@ animations = [{
 "texture": SubResource("AtlasTexture_sgv1c")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Idle",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g73h7"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_0l51j"]
 radius = 18.0278
 
-[node name="PinkAlien" type="Node2D"]
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_8maj4")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_ts2wy")
+animation = &"Death"
+autoplay = "Idle"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-sprite_frames = SubResource("SpriteFrames_wd0yc")
-frame_progress = 0.904712
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CircleShape2D_g73h7")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11.9478, -21.8539)
+scale = Vector2(7, 7)
+shape = SubResource("CircleShape2D_0l51j")
