@@ -48,92 +48,128 @@ columns = 2
 [node name="VSeparator" type="VSeparator" parent="Panel/GridContainer2/MainHolder"]
 layout_mode = 2
 
-[node name="GridContainer2" type="GridContainer" parent="Panel/GridContainer2/MainHolder"]
+[node name="UseSlots" type="GridContainer" parent="Panel/GridContainer2/MainHolder"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ShortcutInventoryItem" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+[node name="ShortcutInventoryItem" parent="Panel/GridContainer2/MainHolder/UseSlots" instance=ExtResource("2_3vbxe")]
 layout_mode = 2
 type = 1
 
-[node name="ShortcutInventoryItem2" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+[node name="ShortcutInventoryItem2" parent="Panel/GridContainer2/MainHolder/UseSlots" instance=ExtResource("2_3vbxe")]
 layout_mode = 2
 type = 1
 
-[node name="ShortcutInventoryItem3" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+[node name="ShortcutInventoryItem3" parent="Panel/GridContainer2/MainHolder/UseSlots" instance=ExtResource("2_3vbxe")]
 layout_mode = 2
 type = 1
 
-[node name="ShortcutInventoryItem4" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+[node name="ShortcutInventoryItem4" parent="Panel/GridContainer2/MainHolder/UseSlots" instance=ExtResource("2_3vbxe")]
 layout_mode = 2
 type = 1
 
-[node name="ShortcutInventoryItem5" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+[node name="ShortcutInventoryItem5" parent="Panel/GridContainer2/MainHolder/UseSlots" instance=ExtResource("2_3vbxe")]
 layout_mode = 2
 type = 1
 
-[node name="ShortcutInventoryItem6" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+[node name="ShortcutInventoryItem6" parent="Panel/GridContainer2/MainHolder/UseSlots" instance=ExtResource("2_3vbxe")]
 layout_mode = 2
 type = 1
 
-[node name="ShortcutInventoryItem7" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+[node name="ShortcutInventoryItem7" parent="Panel/GridContainer2/MainHolder/UseSlots" instance=ExtResource("2_3vbxe")]
 layout_mode = 2
 type = 1
 
-[node name="ShortcutInventoryItem8" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+[node name="ShortcutInventoryItem8" parent="Panel/GridContainer2/MainHolder/UseSlots" instance=ExtResource("2_3vbxe")]
 layout_mode = 2
 type = 1
 
-[node name="ShortcutInventoryItem9" parent="Panel/GridContainer2/MainHolder/GridContainer2" instance=ExtResource("2_3vbxe")]
+[node name="ShortcutInventoryItem9" parent="Panel/GridContainer2/MainHolder/UseSlots" instance=ExtResource("2_3vbxe")]
 layout_mode = 2
 type = 1
 
 [node name="PlacingButtons" type="GridContainer" parent="Panel/GridContainer2"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-columns = 9
+columns = 10
 
 [node name="TurretOrderingNode" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+button = 1
 
 [node name="TurretOrderingNode2" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+button = 2
 
 [node name="TurretOrderingNode3" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+button = 3
 
 [node name="TurretOrderingNode4" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+shortcut = null
+button = 4
 
 [node name="TurretOrderingNode5" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+button = 5
 
 [node name="TurretOrderingNode6" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+button = 6
 
 [node name="TurretOrderingNode7" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+button = 7
 
 [node name="TurretOrderingNode8" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+button = 8
 
 [node name="TurretOrderingNode9" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+button = 9
+
+[node name="CreateButton" type="Button" parent="Panel/GridContainer2/PlacingButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Make Turret"
+
+[node name="CreateTurretPopup" type="Label" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Slect slot for turret, click or press 1-9
+(will overwrite if taken)"
+horizontal_alignment = 1
+
+[node name="Panel2" type="Panel" parent="CreateTurretPopup"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Panel/GridContainer2/PlacingButtons/CreateButton" to="." method="_on_create_button_pressed"]

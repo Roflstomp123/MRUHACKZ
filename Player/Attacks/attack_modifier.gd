@@ -24,9 +24,9 @@ var values_to_add:Array[String] = [
 	"cooldown"
 ]
 
-
 @export var input_name:String = "" 
 
+const CANNON:Texture2D = preload("res://Assets/cannon_single_white.png")
 
 #This is not super user fiendly, but it does allow for easy things.
 #Also you can just instance it, then change the attributes normally.
@@ -53,12 +53,13 @@ func add(modifier:AttackModifier):
 	"""
 	Combines the modifier into this one.
 	"""
+	
 	#var props:Array = get_property_list()
 	for arg in get_property_list():
 		
 		if arg.name in values_to_add: ## MAGIC NUMBER this avoids the built in things to not cause issues.
 			## This is idiotic
 			if arg.name in modifier:
-				_set(arg.name,_get(arg.name) + modifier._get(arg.name))
+				set(arg.name,get(arg.name) + modifier.get(arg.name))
 			
 	pass

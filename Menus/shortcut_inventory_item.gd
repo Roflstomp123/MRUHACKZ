@@ -9,7 +9,7 @@ class_name ShortcutInventoryItem
 		#dumb null check
 		if label and modifier:
 			label.text = modifier.input_name
-		
+
 @export var type:int = INVENTORY
 
 enum {
