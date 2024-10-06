@@ -11,6 +11,10 @@ var player_attack:PackedScene = preload("res://Player/Attacks/PlayerAttack.tscn"
 # Just having them in a dictionary would be good, but that also makes customizability harder.
 # Just moving all of that to the modifier _init, though this is not necesserally the greatest idea.
 
+## Health
+var health_max = 100
+var health_current = 50
+
 ## Attack
 var attack_cooldown:float = 0 #in secconds
 var attack_cooldown_max:float = 0.2
@@ -64,9 +68,25 @@ func _process(delta):
 	## Movement 
 	move_direction.x = Input.get_axis("Move left", "Move right")
 	velocity = move_direction * move_speed #no mult by delta  since move_and_slide should handle that.
+	if velocity.x > 0:
+		$AnimatedSprite2D.scale.x = -5
+	elif velocity.x < 0:
+		$AnimatedSprite2D.scale.x = 5
 	move_and_slide()
 	
 	## Attack
 	attack_cooldown -= delta
 	
+	
+	
 	pass
+
+func take_damage(damage):
+	$owTimer.start()
+	$AnimatedSprite2D.play("ow")
+	health_current -= 10
+	pass
+
+func _on_ow_timer_timeout():
+	$AnimatedSprite2D.play("hewwo")
+	pass 
