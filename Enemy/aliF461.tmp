@@ -81,7 +81,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m2bxb")
 }],
-"loop": false,
+"loop": true,
 "name": &"Death",
 "speed": 5.0
 }, {
@@ -128,10 +128,9 @@ script = ExtResource("1_mms7r")
 position = Vector2(2.5, -5.5)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_5d1hr")
-animation = &"Death"
+animation = &"Orange"
 autoplay = "Orange"
-frame = 5
-frame_progress = 1.0
+frame_progress = 0.339264
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

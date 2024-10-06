@@ -1,4 +1,6 @@
 extends CharacterBody2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 
 
 const SPEED = 50
@@ -7,6 +9,7 @@ var health = 2:
 		health = val
 		if health <= 0:
 			kill()
+			
 
 var transitioning = false
 var state = CIRCLE_ATTACK
@@ -23,7 +26,8 @@ enum {
 func _physics_process(delta: float) -> void:
 	velocity.y = SPEED
 	move_and_slide()
-	
+	if is_on_floor():
+		health = 0
 	## State selection
 	
 	
@@ -51,11 +55,17 @@ func _physics_process(delta: float) -> void:
 					transitioning = false
 					state = ATTACK
 		ATTACK:
-			print("BOOM!")
+			#print("BOOM!")
 			pass
 			
 	
 	
 func kill():
-	queue_free()
-	
+	animated_sprite_2d.play("Death")
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if health <= 0:
+		queue_free()
+		
+func bottom_death():
+	pass
