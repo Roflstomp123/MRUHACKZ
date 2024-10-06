@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 			if get_parent().player:
 				var player = get_parent().player
 				var player_direction = global_position.direction_to(player.global_position)
-				rotation = player_direction.angle()
+				rotation = player_direction.angle() - 90
 				move_and_slide()
 				if player_direction.x > 0:
 					velocity.x = SPEED
