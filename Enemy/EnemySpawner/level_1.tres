@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemySpawnInstructions" load_steps=11 format=3 uid="uid://dbehcikcot87d"]
+[gd_resource type="Resource" script_class="EnemySpawnInstructions" load_steps=11 format=3 uid="uid://dt86sru3fjaxi"]
 
 [ext_resource type="Script" path="res://Enemy/EnemySpawner/enemy_spawner_instructions.gd" id="1_yqmrv"]
 [ext_resource type="Script" path="res://Enemy/EnemySpawner/single_enemy_spawn_instruction.gd" id="2_yiqc2"]

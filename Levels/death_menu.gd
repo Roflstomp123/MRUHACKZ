@@ -8,6 +8,7 @@ func _process(delta):
 	elif visible == true:
 		pass
 	else:
+		playing = false
 		audio_stream_player.stop()
 
 func _on_main_menu_pressed():
