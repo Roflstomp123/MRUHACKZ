@@ -59,6 +59,7 @@ func add(modifier:AttackModifier):
 	tracking = tracking or modifier.tracking
 	
 	#var props:Array = get_property_list()
+	var temp = get_property_list()
 	for arg in get_property_list():
 		
 		if arg.name in values_to_add: ## MAGIC NUMBER this avoids the built in things to not cause issues.

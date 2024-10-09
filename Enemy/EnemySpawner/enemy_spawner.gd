@@ -9,6 +9,8 @@ var enemy_spawner_instructions:EnemySpawnInstructions = EnemySpawnInstructions.n
 @export var level_list:Array[EnemySpawnInstructions] = []
 var level_index = 0
 
+@export var test:Array[Array]
+
 var current_time_to_spawn: float:
 	set(val):
 		current_time_to_spawn = val
@@ -28,8 +30,19 @@ var _done_spawning:bool = false
 
 
 func _ready():
+	
+	
+	
 	current_time_to_spawn = 2#enemy_spawner_instructions.spawn_instructions[0].time_offset
+	
 	level_index = -1
+	#will move the level_index to 0 to start with the first level.
+	#next_round()
+	
+	#needed?
+	#await get_tree().process_frame
+	#make a black cover to stop the flash on first frame?
+	won_ui.set_level_text(level_list[0].level_descriptor)
 	pass
 
 func _process(delta: float) -> void:
@@ -42,12 +55,26 @@ func _process(delta: float) -> void:
 			pass
 	pass
 
+## Called on start and on continue button press 
+## move to the setter -><-
 func next_round():
+	
 	if level_index + 1 < level_list.size():
 		level_index += 1
+		print("Current round = ", level_index)
 		instruction_index = 0
 		_done_spawning = false
 		pass
+		
+		
+		
+		ModifiersSingleton.modifier_list.append_array(level_list[level_index].new_unlocks)
+		
+		## This is called on button press for the next one,
+		## so we do need to load in the text of the next level
+		if level_index + 1 < level_list.size():
+			won_ui.set_level_text(level_list[level_index + 1].level_descriptor)
+		
 	pass
 	
 

@@ -1,28 +1,19 @@
 extends Resource
 class_name EnemySpawnInstructions
 """
-REMOVE REMOVE REMOVE REMOVE REMOVE 
-REMOVE REMOVE REMOVE REMOVE REMOVE 
-REMOVE REMOVE REMOVE REMOVE REMOVE 
-REMOVE REMOVE REMOVE REMOVE REMOVE 
-REMOVE REMOVE REMOVE REMOVE REMOVE 
-REMOVE REMOVE REMOVE REMOVE REMOVE 
-
-REMOVE REMOVE REMOVE REMOVE REMOVE 
-REMOVE REMOVE REMOVE REMOVE REMOVE 
-REMOVE REMOVE REMOVE REMOVE REMOVE 
-REMOVE REMOVE REMOVE REMOVE REMOVE 
-
-REMOVE REMOVE REMOVE REMOVE REMOVE 
-REMOVE REMOVE REMOVE REMOVE REMOVE 
-REMOVE REMOVE REMOVE REMOVE REMOVE 
-v
-
+I recomment saving these as individual resources
+then add them into the enemy spawner to avoid the
+possibility of these getting randomly deleted.
 """
 var enemy_scenes:Dictionary = {
 	
 }
 
+## The text that will be shown when the level is about to start.
+@export_multiline var level_descriptor = ""
+
+## These are unlocked at the start of this level
+@export var new_unlocks:Array[AttackModifier] = [] 
 @export var spawn_instructions:Array[SingleEnemySpawnInstruction] = []
 
 

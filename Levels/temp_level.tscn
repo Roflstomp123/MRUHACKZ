@@ -1,13 +1,30 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwh612pdj51oo"]
+[gd_scene load_steps=16 format=3 uid="uid://dwh612pdj51oo"]
 
 [ext_resource type="PackedScene" uid="uid://d2y3tr3j5exhm" path="res://Player/temp_player.tscn" id="1_hq4be"]
 [ext_resource type="PackedScene" uid="uid://3pjtbtv6mgdk" path="res://Enemy/EnemySpawner/enemy_spawner.tscn" id="1_ip621"]
-[ext_resource type="PackedScene" uid="uid://8w20wn4aughi" path="res://Levels/background.tscn" id="1_lxviy"]
+[ext_resource type="PackedScene" uid="uid://dsqqponge0fu2" path="res://Levels/background.tscn" id="1_lxviy"]
 [ext_resource type="PackedScene" uid="uid://7qoxqwxaounk" path="res://Menus/won_ui.tscn" id="2_3xgjj"]
 [ext_resource type="Resource" uid="uid://dbehcikcot87d" path="res://Enemy/EnemySpawner/level_1.tres" id="3_bc3tg"]
 [ext_resource type="Script" path="res://Enemy/EnemySpawner/enemy_spawner_instructions.gd" id="3_pa6ky"]
 [ext_resource type="Resource" uid="uid://on72gcqadsuh" path="res://Enemy/EnemySpawner/level_2.tres" id="5_hl154"]
+[ext_resource type="Script" path="res://Player/Attacks/attack_modifier.gd" id="6_3twmv"]
+[ext_resource type="Script" path="res://Enemy/EnemySpawner/single_enemy_spawn_instruction.gd" id="6_ufet6"]
 [ext_resource type="AudioStream" uid="uid://dwhuxeixxg6d1" path="res://Assets/battlemusic.mp3" id="7_mp6pu"]
+
+[sub_resource type="Resource" id="Resource_6b4dr"]
+script = ExtResource("6_ufet6")
+position = Vector2(0, 0)
+time_offset = 0.0
+state = -1
+
+[sub_resource type="Resource" id="Resource_y0lhp"]
+script = ExtResource("3_pa6ky")
+level_descriptor = "You ulocked a new shortcut! 
+Use Ctr + Z 
+To heal (Cooldown in the bottom left).
+You unlocked 2 more turret."
+new_unlocks = Array[ExtResource("6_3twmv")]([])
+spawn_instructions = Array[ExtResource("6_ufet6")]([SubResource("Resource_6b4dr")])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arefr"]
 size = Vector2(64, 64)
@@ -30,7 +47,8 @@ offset_right = -305.0
 offset_bottom = -254.0
 
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("won_ui") instance=ExtResource("1_ip621")]
-level_list = Array[ExtResource("3_pa6ky")]([ExtResource("3_bc3tg"), ExtResource("5_hl154")])
+level_list = Array[ExtResource("3_pa6ky")]([ExtResource("3_bc3tg"), ExtResource("5_hl154"), SubResource("Resource_y0lhp")])
+test = Array[Array]([[null], []])
 won_ui = NodePath("../CanvasLayer2/WonUI")
 
 [node name="temp_player" parent="." instance=ExtResource("1_hq4be")]

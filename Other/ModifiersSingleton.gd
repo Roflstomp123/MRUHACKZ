@@ -24,12 +24,14 @@ var empty_modifier = preload("res://Player/Modifiers/empty_modifier.tres")
 	"9"
 ]
 
+
+enum MODIFIER_TYPES{
+	INCREASE_SIZE,
+	TRACKING
+}
 ##List of all modifiers
 #Make sure to add all of the modifiers in here
-var modifier_list :Array[AttackModifier] = [
-	preload("res://Player/Modifiers/increase_size.tres")#,
-	#preload("res://Player/Modifiers/tracking.tres")
-]
+var modifier_list :Array[AttackModifier] = []
 
 ## The current list used for the turrets. Only 9 long.
 var turret_modifiers:Array[AttackModifier]

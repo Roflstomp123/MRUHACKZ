@@ -87,7 +87,8 @@ func _input(event: InputEvent) -> void:
 	## Handling modifiers 
 	# Make sure to only use values that are vars at the top so it's easier to iterate.
 	if event.is_action("Enlarge attack"):
-		current_modifier.size += size_increase_modifier
+		current_modifier.add(ModifiersSingleton.modifier_list[0])
+		#current_modifier.size += size_increase_modifier
 		pass
 	#if event.is_action("multi attack")
 	## Should do a for inputs like in turrets, but eh
@@ -109,7 +110,8 @@ func _input(event: InputEvent) -> void:
 	
 	## Turret spawning
 	for input_str in ModifiersSingleton.turret_inputs:
-		if ModifiersSingleton.turret_modifiers[int(input_str) -1].input_name != "empty_modifier" and event.is_action_pressed(input_str):
+		if ModifiersSingleton.turret_modifiers[int(input_str) -1].input_name != "empty_modifier" \
+			and event.is_action_pressed(input_str):
 			if turrent_parent.get_children().size() < ModifiersSingleton.max_turrets:
 				var new_turret:Turret = TURRET.instantiate()
 				turrent_parent.add_child(new_turret)
