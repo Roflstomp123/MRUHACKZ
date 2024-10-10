@@ -9,6 +9,7 @@ class_name WonUI
 signal Continue
 
 
+
 func set_level_text(text:String):
 	await  get_tree().process_frame
 	label_2.text = text

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c1q00h0a14dr6" path="res://Menus/turret_ordering_node.tscn" id="3_kk0ug"]
 
 [node name="MakeTurretMenu" type="MarginContainer"]
+process_mode = 3
 layout_direction = 1
 anchors_preset = 15
 anchor_right = 1.0

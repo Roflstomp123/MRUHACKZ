@@ -16,7 +16,7 @@ func _process(delta):
 
 
 func _on_start_button_pressed():
-	Gamemanager.change_scene("TempLevel")
+	GameManager.change_scene("TempLevel")
 
 
 func _on_quit_button_pressed():

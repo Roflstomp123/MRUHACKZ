@@ -9,6 +9,14 @@ const SHORTCUT_INVENTORY_ITEM = preload("res://Menus/shortcut_inventory_item.tsc
 
 #TODO let you examine an existing turret?
 
+func _input(event: InputEvent) -> void:
+
+	if event.is_action_pressed("open_turret_menu"):
+			## unpausing handled by the menu itself
+			visible = not visible
+			get_tree().paused = visible
+		
+	
 
 func _ready():
 	

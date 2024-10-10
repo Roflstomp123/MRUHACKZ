@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 	if _done_spawning:
 		var temp = get_children()
 		if get_children().size() == 1: #1 for the timer
-			if won_ui:
+			if won_ui and player.health_current > 0:
 				won_ui.visible = true
 			pass
 	pass

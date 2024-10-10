@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 #could spawn it through new, but eh.
 var player_attack:PackedScene = preload("res://Player/Attacks/PlayerAttack.tscn")
@@ -45,6 +46,7 @@ var move_direction:Vector2
 var move_speed:float = 750
 
 
+
 func _toggle_turret_monitoring():
 	turret_catching_area.monitoring = true
 	turret_catching_area.monitorable = true
@@ -61,6 +63,10 @@ func _toggle_turret_monitoring():
 	turret_catching_area.monitorable = false
 
 func _input(event: InputEvent) -> void:
+	## unpausing handled by the menu itself
+	## though it might be better to pause from here
+	## and let that menu unpause itself.		
+	
 	## Movement handled inside of process because that's eaiser.
 	## Committing to an attack
 	if event.is_action("Finish attack") and attack_cooldown < 0:
@@ -97,11 +103,6 @@ func _input(event: InputEvent) -> void:
 			current_modifier.add(ModifiersSingleton.modifier_list[1])#preload("res://Player/Modifiers/tracking.tres")
 	
 	
-	if event.is_action_pressed("open_turret_menu"):
-		#TODO pausing?
-		#also this shouldn't be here, it should be done after missions.
-		make_turret_menu.visible = not make_turret_menu.visible
-		
 	
 	## Turret moving
 	if event.is_action_pressed("remove_turret"):
