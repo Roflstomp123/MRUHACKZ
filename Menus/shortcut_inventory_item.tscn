@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpocvxcwp4pss"]
+[gd_scene load_steps=3 format=3 uid="uid://dpocvxcwp4pss"]
 
 [ext_resource type="Script" path="res://Menus/shortcut_inventory_item.gd" id="1_8282v"]
+[ext_resource type="Texture2D" uid="uid://bdshhwtrc6vg" path="res://Assets/9_key_space_key.png" id="2_x0t0y"]
 
 [node name="ShortcutInventoryItem" type="MarginContainer"]
 anchors_preset = 15
@@ -17,6 +18,22 @@ script = ExtResource("1_8282v")
 layout_mode = 2
 mouse_filter = 1
 
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_x0t0y")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
@@ -26,3 +43,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 1
 mouse_filter = 1
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1

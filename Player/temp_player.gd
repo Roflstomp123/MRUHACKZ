@@ -111,7 +111,7 @@ func _input(event: InputEvent) -> void:
 	
 	## Turret spawning
 	for input_str in ModifiersSingleton.turret_inputs:
-		if ModifiersSingleton.turret_modifiers[int(input_str) -1].input_name != "empty_modifier" \
+		if ModifiersSingleton.turret_modifiers[int(input_str) -1] != ModifiersSingleton.empty_modifier \
 			and event.is_action_pressed(input_str):
 			if turrent_parent.get_children().size() < ModifiersSingleton.max_turrets:
 				var new_turret:Turret = TURRET.instantiate()

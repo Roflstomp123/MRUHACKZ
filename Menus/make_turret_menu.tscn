@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhii2lrlym0ad"]
+[gd_scene load_steps=5 format=3 uid="uid://bhii2lrlym0ad"]
 
 [ext_resource type="Script" path="res://Menus/make_turret_menu.gd" id="1_n72h0"]
 [ext_resource type="PackedScene" uid="uid://dpocvxcwp4pss" path="res://Menus/shortcut_inventory_item.tscn" id="2_3vbxe"]
 [ext_resource type="PackedScene" uid="uid://c1q00h0a14dr6" path="res://Menus/turret_ordering_node.tscn" id="3_kk0ug"]
+[ext_resource type="Texture2D" uid="uid://bdshhwtrc6vg" path="res://Assets/9_key_space_key.png" id="4_unrlc"]
 
 [node name="MakeTurretMenu" type="MarginContainer"]
 process_mode = 3
@@ -35,12 +36,28 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/GridContainer2/MainHolder"]
+[node name="InventoryPanel" type="VBoxContainer" parent="Panel/GridContainer2/MainHolder"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Shortcuts" type="GridContainer" parent="Panel/GridContainer2/MainHolder/ScrollContainer"]
+[node name="Label" type="Label" parent="Panel/GridContainer2/MainHolder/InventoryPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Unlocked Modifiers
+"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/GridContainer2/MainHolder/InventoryPanel"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/GridContainer2/MainHolder/InventoryPanel"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Shortcuts" type="GridContainer" parent="Panel/GridContainer2/MainHolder/InventoryPanel/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -53,6 +70,15 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Panel/GridContainer2/MainHolder/UseSlots"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Modifiers to add to turret (stack aditively)"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/GridContainer2/MainHolder/UseSlots"]
+layout_mode = 2
 
 [node name="ShortcutInventoryItem" parent="Panel/GridContainer2/MainHolder/UseSlots" instance=ExtResource("2_3vbxe")]
 layout_mode = 2
@@ -99,78 +125,109 @@ columns = 10
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "1"
 button = 1
 
 [node name="TurretOrderingNode2" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "2"
 button = 2
 
 [node name="TurretOrderingNode3" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "3"
 button = 3
 
 [node name="TurretOrderingNode4" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
 shortcut = null
+text = "4"
 button = 4
 
 [node name="TurretOrderingNode5" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "5"
 button = 5
 
 [node name="TurretOrderingNode6" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "6"
 button = 6
 
 [node name="TurretOrderingNode7" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "7"
 button = 7
 
 [node name="TurretOrderingNode8" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "8"
 button = 8
 
 [node name="TurretOrderingNode9" parent="Panel/GridContainer2/PlacingButtons" instance=ExtResource("3_kk0ug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "9"
 button = 9
 
 [node name="CreateButton" type="Button" parent="Panel/GridContainer2/PlacingButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 text = "Make Turret"
 
-[node name="CreateTurretPopup" type="Label" parent="."]
+[node name="CreateTurretPopup" type="MarginContainer" parent="."]
 visible = false
 layout_mode = 2
-size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 350
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 380
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CreateTurretPopup"]
+layout_mode = 2
+texture = ExtResource("4_unrlc")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CreateTurretPopup" type="Label" parent="CreateTurretPopup"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
 text = "Slect slot for turret, click or press 1-9
 (will overwrite if taken)"
 horizontal_alignment = 1
-
-[node name="Panel2" type="Panel" parent="CreateTurretPopup"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+vertical_alignment = 1
 
 [connection signal="pressed" from="Panel/GridContainer2/PlacingButtons/CreateButton" to="." method="_on_create_button_pressed"]

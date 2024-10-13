@@ -1,6 +1,9 @@
 extends Button
 class_name TurretOrderingNode
 
+@onready var texture_rect: TextureRect = $TextureRect
+
+
 @export var modifier:AttackModifier
 @export var button:int = 0:
 	set(val):
@@ -34,16 +37,20 @@ func _set_cannon(_make_visible:bool, color:Color):
 	NOT IN USE!
 	"""
 	if _make_visible:
-		icon = cannon_sprite
+		texture_rect.texture = cannon_sprite
 	else:
-		icon = null
-	modulate = color
+		texture_rect.texture = null
+	#modulate = color
 
 
 func _on_pressed() -> void:
 	CreateTurretAt.emit(button)
-	icon = cannon_sprite
+	texture_rect.texture = cannon_sprite
+	
+	
 	#random color
-	#TODO make the color apply to the icon. Not sure if possible.
-	modulate = Color(randi_range(0,255),randi_range(0,255),randi_range(0,255))
+	ModifiersSingleton.turret_colors[button - 1] = Color(randf(),randf(),randf())
+	#need the texture_rect to only change the color of the texture rather than the panel behind it as well.
+	texture_rect.self_modulate = ModifiersSingleton.turret_colors[button - 1]
+	text = ""
 	pass # Replace with function body.

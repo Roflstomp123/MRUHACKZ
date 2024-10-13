@@ -8,4 +8,5 @@ damage = 0.0
 size = 0.0
 speed = 0.0
 cooldown = 0.0
-input_name = "empty_modifier"
+tracking = false
+input_name = ""

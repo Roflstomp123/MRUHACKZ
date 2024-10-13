@@ -23,7 +23,10 @@ var modifier:AttackModifier:
 
 func _process(delta: float) -> void:
 	cooldown -= delta
-	
+
+func _ready():
+	modulate = ModifiersSingleton.turret_colors[key - 1]
+
 func shoot():
 	var new_attack:PlayerAttack = player_attack_scene.instantiate()
 	

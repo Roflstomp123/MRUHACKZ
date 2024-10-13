@@ -1,6 +1,5 @@
 extends Node
 ## Can't have the same name as autoload since it hides it. This is not optimal ;_;
-class_name ModifierSingleton
 
 """
 Holds all of the modifiers for quick acess later on turrets and stuff.
@@ -34,11 +33,16 @@ enum MODIFIER_TYPES{
 var modifier_list :Array[AttackModifier] = []
 
 ## The current list used for the turrets. Only 9 long.
+## Make into a dictionary/object??
 var turret_modifiers:Array[AttackModifier]
+#NOTE: Colors will not update when updating turret stuff.
+#could fix this easily with a signal and stuff, but eh.
+var turret_colors:Array[Color]
 var curr_mod
-var modifier_file_path = "res://Player/Modifiers/"
 
 func _ready():
 	turret_modifiers.resize(9)
 	turret_modifiers.fill(empty_modifier)
+	turret_colors.resize(9)
+	turret_colors.fill(Color.WHITE)
 	pass 

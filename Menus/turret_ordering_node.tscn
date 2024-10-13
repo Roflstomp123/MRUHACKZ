@@ -8,12 +8,24 @@
 events = [SubResource("InputEventAction_ynhni")]
 
 [node name="TurretOrderingNode" type="Button"]
-offset_right = 8.0
-offset_bottom = 8.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 disabled = true
 shortcut = SubResource("Shortcut_32diq")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("1_wrwy7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
