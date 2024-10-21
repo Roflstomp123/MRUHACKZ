@@ -11,13 +11,19 @@ const SHORTCUT_INVENTORY_ITEM = preload("res://Menus/shortcut_inventory_item.tsc
 
 func _input(event: InputEvent) -> void:
 
+	# Opening done by the player so that this can have
+	# process mode = when paused
 	if event.is_action_pressed("open_turret_menu"):
-			## unpausing handled by the menu itself
-			visible = not visible
-			get_tree().paused = visible
-			if visible:
-				update_usable_modifiers()
-	
+		## unpausing handled by the menu itself
+		#stops this same input from pausing again when handled by the player
+		get_viewport().set_input_as_handled()
+		visible = not visible
+		get_tree().paused = false
+		if visible:
+			update_usable_modifiers()
+		
+	# can't just change
+
 	if event.is_action_pressed("clear"):
 		for place_slot in use_slots.get_children():
 			if place_slot is ShortcutInventoryItem:
@@ -54,12 +60,6 @@ func _ready():
 	for node in placing_buttons.get_children():
 		if node is TurretOrderingNode:
 			node.CreateTurretAt.connect(_placing_turret_pressed)
-	
-	## build shortcuts menu
-	#TODO could make a set ammount and make them invisible so the text doesn't keep movign.
-	
-	update_usable_modifiers()
-	
 	
 	for i in range(18):
 		var new_item: = SHORTCUT_INVENTORY_ITEM.instantiate()

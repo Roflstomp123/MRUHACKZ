@@ -63,10 +63,14 @@ func _toggle_turret_monitoring():
 	turret_catching_area.monitorable = false
 
 func _input(event: InputEvent) -> void:
-	## unpausing handled by the menu itself
-	## though it might be better to pause from here
-	## and let that menu unpause itself.		
 	
+	## unpausing handled by the menu itself
+	if event.is_action_pressed("open_turret_menu"):
+		make_turret_menu.visible = not make_turret_menu.visible
+		#only called on opening
+		get_tree().paused = true
+		make_turret_menu.update_usable_modifiers()
+
 	## Movement handled inside of process because that's eaiser.
 	## Committing to an attack
 	if event.is_action("Finish attack") and attack_cooldown < 0:
@@ -85,6 +89,7 @@ func _input(event: InputEvent) -> void:
 		new_projectile.position = position
 		
 		new_projectile.apply_modifier(current_modifier)
+		current_modifier.one_time_effect(self)
 		current_modifier.reset()
 		
 		attack_cooldown = attack_cooldown_max

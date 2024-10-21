@@ -22,10 +22,16 @@ var values_to_add:Array[String] = [
 	"damage",
 	"size",
 	"speed",
-	"cooldown"
+	"cooldown",
+	"heal_ammount"
 ]
 
 @export var input_name:String = "" 
+
+@export_category("One time effects")
+## Heal by this much on press. Have to balance this for turrets??
+## Starting max is 100. 0 won't heal ofc.
+@export var heal_ammount:int = 0
 
 const CANNON:Texture2D = preload("res://Assets/cannon_single_white.png")
 
@@ -41,12 +47,14 @@ func _init(params:Dictionary = {}):
 	pass
 		
 
+# Only ever called on current_modifier in player.gd 
 func reset():
 	#do this with the foor loop from init??
 	damage = 0
 	size = 0
 	speed = 0
 	cooldown = 0
+	heal_ammount = 0
 	tracking = false
 	pass
 
@@ -68,3 +76,13 @@ func add(modifier:AttackModifier):
 				set(arg.name,get(arg.name) + modifier.get(arg.name))
 			
 	pass
+
+# Used for some things??? (descriptive, ik, ik).
+# healing, etc. Not sure if it's actually useful.
+# How does this work with a turret??
+# Remember that this is always called on current_modifier,
+# so it will have the addition of what was pressed.
+func one_time_effect(player):
+	player.health_current += heal_ammount
+	if player.health_current > player.health_max:
+		player.health_current = player.health_max

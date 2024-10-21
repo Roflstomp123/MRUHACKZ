@@ -10,3 +10,4 @@ speed = 0.0
 cooldown = 0.0
 tracking = false
 input_name = "heal"
+heal_ammount = 10

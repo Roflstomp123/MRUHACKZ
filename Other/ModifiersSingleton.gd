@@ -45,4 +45,8 @@ func _ready():
 	turret_modifiers.fill(empty_modifier)
 	turret_colors.resize(9)
 	turret_colors.fill(Color.WHITE)
+	
+	# TODO REMOVE, ONLY USED FOR TESTING
+	await get_tree().process_frame
+	modifier_list.append(preload("res://Player/Modifiers/heal.tres"))
 	pass 

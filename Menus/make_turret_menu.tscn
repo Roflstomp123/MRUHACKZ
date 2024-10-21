@@ -54,7 +54,7 @@ action = &"8"
 events = [SubResource("InputEventAction_gdqlc")]
 
 [node name="MakeTurretMenu" type="MarginContainer"]
-process_mode = 3
+process_mode = 2
 layout_direction = 1
 anchors_preset = 15
 anchor_right = 1.0
