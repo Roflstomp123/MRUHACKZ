@@ -43,6 +43,9 @@ func _ready():
 	#await get_tree().process_frame
 	#make a black cover to stop the flash on first frame?
 	won_ui.set_level_text(level_list[0].level_descriptor)
+	
+	
+	won_ui.set_congrats_text("")
 	pass
 
 func _process(delta: float) -> void:
@@ -74,7 +77,8 @@ func next_round():
 		## so we do need to load in the text of the next level
 		if level_index + 1 < level_list.size():
 			won_ui.set_level_text(level_list[level_index + 1].level_descriptor)
-		
+			
+			won_ui.set_congrats_text(level_list[level_index].level_name)
 	pass
 	
 

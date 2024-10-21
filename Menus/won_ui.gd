@@ -8,7 +8,14 @@ class_name WonUI
 
 signal Continue
 
-
+#Confusing names for these two :/
+func set_congrats_text(text:String):
+	await get_tree().process_frame
+	if text == "":
+		congrats.text = text
+	else:
+		congrats.text = "Congratulations \n you beat " + text
+	pass
 
 func set_level_text(text:String):
 	await  get_tree().process_frame

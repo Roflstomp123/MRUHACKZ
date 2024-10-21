@@ -9,6 +9,7 @@ var enemy_scenes:Dictionary = {
 	
 }
 
+@export var level_name:String = ""
 ## The text that will be shown when the level is about to start.
 @export_multiline var level_descriptor = ""
 

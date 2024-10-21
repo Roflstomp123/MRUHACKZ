@@ -19,6 +19,7 @@ state = -1
 
 [sub_resource type="Resource" id="Resource_y0lhp"]
 script = ExtResource("3_pa6ky")
+level_name = "Level 3"
 level_descriptor = "You ulocked a new shortcut! 
 Use Ctr + Z 
 To heal (Cooldown in the bottom left).

@@ -52,6 +52,7 @@ state = -1
 
 [resource]
 script = ExtResource("1_5un6a")
+level_name = "Level 2"
 level_descriptor = "You ulocked a new shortcut! 
 Use Alt + D 
 To make your lasers follow enemies. 

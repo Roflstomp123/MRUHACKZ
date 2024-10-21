@@ -52,6 +52,7 @@ state = -1
 
 [resource]
 script = ExtResource("1_yqmrv")
+level_name = "Level 1"
 level_descriptor = "Don't let the aliens get  to your planet! 
  Use Ctr + + to make your shot bigger, 
  or Ctr + - to make them smaller (and faster).
