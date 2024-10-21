@@ -1,9 +1,57 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhii2lrlym0ad"]
+[gd_scene load_steps=21 format=3 uid="uid://bhii2lrlym0ad"]
 
 [ext_resource type="Script" path="res://Menus/make_turret_menu.gd" id="1_n72h0"]
 [ext_resource type="PackedScene" uid="uid://dpocvxcwp4pss" path="res://Menus/shortcut_inventory_item.tscn" id="2_3vbxe"]
 [ext_resource type="PackedScene" uid="uid://c1q00h0a14dr6" path="res://Menus/turret_ordering_node.tscn" id="3_kk0ug"]
 [ext_resource type="Texture2D" uid="uid://bdshhwtrc6vg" path="res://Assets/9_key_space_key.png" id="4_unrlc"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_vsmwh"]
+action = &"1"
+
+[sub_resource type="Shortcut" id="Shortcut_lsgax"]
+events = [SubResource("InputEventAction_vsmwh")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_a3gxq"]
+action = &"2"
+
+[sub_resource type="Shortcut" id="Shortcut_84qvi"]
+events = [SubResource("InputEventAction_a3gxq")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_uvihw"]
+action = &"3"
+
+[sub_resource type="Shortcut" id="Shortcut_l0wds"]
+events = [SubResource("InputEventAction_uvihw")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_p7p5f"]
+action = &"4"
+
+[sub_resource type="Shortcut" id="Shortcut_gpqsi"]
+events = [SubResource("InputEventAction_p7p5f")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_l5fev"]
+action = &"5"
+
+[sub_resource type="Shortcut" id="Shortcut_75ved"]
+events = [SubResource("InputEventAction_l5fev")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_oxpvs"]
+action = &"6"
+
+[sub_resource type="Shortcut" id="Shortcut_pak7g"]
+events = [SubResource("InputEventAction_oxpvs")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_avgao"]
+action = &"7"
+
+[sub_resource type="Shortcut" id="Shortcut_q8bbp"]
+events = [SubResource("InputEventAction_avgao")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_gdqlc"]
+action = &"8"
+
+[sub_resource type="Shortcut" id="Shortcut_ih1nm"]
+events = [SubResource("InputEventAction_gdqlc")]
 
 [node name="MakeTurretMenu" type="MarginContainer"]
 process_mode = 3
@@ -126,6 +174,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
+shortcut = SubResource("Shortcut_lsgax")
 text = "1"
 button = 1
 
@@ -134,6 +183,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
+shortcut = SubResource("Shortcut_84qvi")
 text = "2"
 button = 2
 
@@ -142,6 +192,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
+shortcut = SubResource("Shortcut_l0wds")
 text = "3"
 button = 3
 
@@ -150,7 +201,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
-shortcut = null
+shortcut = SubResource("Shortcut_gpqsi")
 text = "4"
 button = 4
 
@@ -159,6 +210,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
+shortcut = SubResource("Shortcut_75ved")
 text = "5"
 button = 5
 
@@ -167,6 +219,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
+shortcut = SubResource("Shortcut_pak7g")
 text = "6"
 button = 6
 
@@ -175,6 +228,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
+shortcut = SubResource("Shortcut_q8bbp")
 text = "7"
 button = 7
 
@@ -183,6 +237,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
+shortcut = SubResource("Shortcut_ih1nm")
 text = "8"
 button = 8
 

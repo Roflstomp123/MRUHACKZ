@@ -3,7 +3,9 @@ class_name ShortcutInventoryItem
 
 @onready var label: Label = $Panel/Label
 
-@export var modifier:AttackModifier = AttackModifier.new():
+#Not sure if there was a reason this was #AttackModifier.new(): rather than empty_modifier
+# if something broke, check this.
+@export var modifier:AttackModifier = ModifiersSingleton.empty_modifier: 
 	set(val):
 		modifier = val
 		#dumb null check

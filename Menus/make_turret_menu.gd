@@ -17,8 +17,37 @@ func _input(event: InputEvent) -> void:
 			get_tree().paused = visible
 			if visible:
 				update_usable_modifiers()
-		
 	
+	if event.is_action_pressed("clear"):
+		for place_slot in use_slots.get_children():
+			if place_slot is ShortcutInventoryItem:
+				place_slot.modifier = ModifiersSingleton.empty_modifier
+	
+	if event.is_action_pressed("Finish attack"):
+		#so that you don't have to press the button :)
+		_on_create_button_pressed()
+
+				
+	# indents :)
+	# Checks every input. This is very similar to input handing in player
+	# Should this be placed in the singleton as a get_mod(event) -> AttackModifier??
+	for modifier in ModifiersSingleton.modifier_list:
+		if event.is_action_pressed(modifier.input_name):
+			# TODO add modifier to list
+			
+			var open_slot
+			#first find the first open mod slot
+			for place_slot in use_slots.get_children():
+				if place_slot is ShortcutInventoryItem \
+					#TODO should use == empty_modifier here, but can't work since it's made local
+				   and place_slot.modifier == ModifiersSingleton.empty_modifier:
+					open_slot = place_slot
+					break
+			if open_slot:
+				open_slot.modifier = modifier
+			
+			pass
+			
 
 func _ready():
 	

@@ -91,23 +91,15 @@ func _input(event: InputEvent) -> void:
 		
 		
 	## Handling modifiers 
-	# Make sure to only use values that are vars at the top so it's easier to iterate.
-	if event.is_action("Enlarge attack"):
-		current_modifier.add(ModifiersSingleton.modifier_list[0])
-		#current_modifier.size += size_increase_modifier
-		pass
-	#if event.is_action("multi attack")
-	## Should do a for inputs like in turrets, but eh
-	if event.is_action("tracking"):
-		if ModifiersSingleton.modifier_list.size() > 1:
-			current_modifier.add(ModifiersSingleton.modifier_list[1])#preload("res://Player/Modifiers/tracking.tres")
-	
-	
-	
-	## Turret moving
-	if event.is_action_pressed("remove_turret"):
-		_toggle_turret_monitoring()
+	#this will only hold mods that are currently unlcoked.
+	for mod in ModifiersSingleton.modifier_list:
+		#TODO handle non-stacking ones like:
+		#	heal, idk??? 
 		
+		if event.is_action_pressed(mod.input_name):
+			current_modifier.add(mod)
+			
+	
 	
 	## Turret spawning
 	for input_str in ModifiersSingleton.turret_inputs:
@@ -123,6 +115,11 @@ func _input(event: InputEvent) -> void:
 			
 			
 			pass
+	
+	## Turret moving
+	if event.is_action_pressed("remove_turret"):
+		_toggle_turret_monitoring()
+		
 
 func _process(delta):
 	
