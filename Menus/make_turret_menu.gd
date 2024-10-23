@@ -60,7 +60,7 @@ func _ready():
 	for node in placing_buttons.get_children():
 		if node is TurretOrderingNode:
 			node.CreateTurretAt.connect(_placing_turret_pressed)
-	
+ 	
 	for i in range(18):
 		var new_item: = SHORTCUT_INVENTORY_ITEM.instantiate()
 		new_item.modifier = ModifiersSingleton.empty_modifier
